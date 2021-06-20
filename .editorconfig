@@ -8,6 +8,3 @@ indent_style = space
 
 [LICENSE]
 insert_final_newline = unset
-
-[*.r]
-max_line_length = 80
