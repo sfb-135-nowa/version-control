@@ -1,0 +1,32 @@
+{
+  "name": "nowa-git-training",
+  "version": "0.0.1",
+  "description": "The materials for the training on version control with git conducted for the members of the CRC 135",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier -w . **/*.Rmd",
+    "prelint": "npm run format",
+    "lint": "markdownlint-cli2 **/*.{md,Rmd}",
+    "spell": "cspell '**/*.{md,Rmd}'",
+    "build:slides": "./script/build-slides.R",
+    "build:handout": "./script/build-handout.R && shx mv source/handout.pdf build/",
+    "build": "npm run build:slides && npm run build:handout",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials.git"
+  },
+  "author": "Tamara Cook <tamara.cook@uni-marburg.de>",
+  "license": "CC-BY-SA-4.0",
+  "private": true,
+  "devDependencies": {
+    "cspell": "^5.6.6",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "markdownlint-cli2": "^0.1.3",
+    "prettier": "^2.3.1",
+    "shx": "^0.3.3"
+  }
+}
