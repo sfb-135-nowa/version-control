@@ -1,0 +1,8 @@
+pages:
+  script:
+    - mv build public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
