@@ -4,6 +4,9 @@ MD013:
   code_block_line_length: 120
 MD046: { style: fenced }
 
+# Pandoc documents use h1 for highest chapter level
+single-h1: false
+
 # These rules are covered by prettier and could potentially lead to conflicts
 MD003: false
 MD004: false
