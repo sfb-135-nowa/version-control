@@ -23,6 +23,8 @@
       \repeat unfold 2 {
         \tuplet 3/2 { a4 b a } \tuplet 3/2 { b c d } | \tuplet 3/2 { fis, g fis } \tuplet 3/2 { g a b }
       }
+      %Takt 18—21
+      c4 c g g | e' e b b | g' g d d | e e b b
     }
   }
   \midi {}
