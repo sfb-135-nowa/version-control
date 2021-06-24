@@ -36,6 +36,11 @@
       \repeat unfold 2 {
         \tuplet 3/2 { g4 a b } \tuplet 3/2 { c b c } | \tuplet 3/2 { b c d } \tuplet 3/2 { e d e }
       }
+      %Takt 46—53
+      \repeat unfold 2 { d4 b b c | d8 e d e d4 d }
+      \repeat unfold 2 { g b b a | g8 fis g fis g4 g }
+      %Takt 54—58
+      d g e d | c e d c | b d c b | a1 | b
     }
   }
   \midi {}
