@@ -19,6 +19,10 @@
       %Takt 6—13
       b4 b c8 b c b | a4 g g b | b4 b c8 b c b | a4 g g b
       b4 b a8 b a b | c4 d d b | b4 b a8 b a b | c4 d d b
+      %Takt 14—17
+      \repeat unfold 2 {
+        \tuplet 3/2 { a4 b a } \tuplet 3/2 { b c d } | \tuplet 3/2 { fis, g fis } \tuplet 3/2 { g a b }
+      }
     }
   }
   \midi {}
