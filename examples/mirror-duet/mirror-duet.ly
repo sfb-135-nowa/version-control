@@ -26,7 +26,10 @@
       %Takt 18—21
       c4 c g g | e' e b b | g' g d d | e e b b
       %Takt 22—29
-      \repeat unfold 8 { b8 } | \repeat unfold 8 { c } | \repeat unfold 8 { d } | \repeat unfold 8 { e } | \repeat unfold 8 { fis } | \repeat unfold 8 { g } | \repeat unfold 8 { a } | \repeat unfold 8 { b }
+      \repeat unfold 8 { b8 } | \repeat unfold 8 { c } | \repeat unfold 8 { d } | \repeat unfold 8 { e }
+      \repeat unfold 8 { fis } | \repeat unfold 8 { g } | \repeat unfold 8 { a } | \repeat unfold 8 { b }
+      %Takt 30—37
+      d,,4 d g g | e e a a | fis fis b b | g g c c | a a d d | b b e e | c c fis fis | d d g g
     }
   }
   \midi {}
