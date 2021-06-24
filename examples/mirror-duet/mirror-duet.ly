@@ -16,6 +16,9 @@
     \relative {
       %Takt 1—5
       d''1 | e1 | d4 c d2 | c4 b c2 | b4 a b2
+      %Takt 6—13
+      b4 b c8 b c b | a4 g g b | b4 b c8 b c b | a4 g g b
+      b4 b a8 b a b | c4 d d b | b4 b a8 b a b | c4 d d b
     }
   }
   \midi {}
