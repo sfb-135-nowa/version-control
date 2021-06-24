@@ -32,6 +32,10 @@
       d,,4 d g g | e e a a | fis fis b b | g g c c | a a d d | b b e e | c c fis fis | d d g g
       %Takt 38—41
       \repeat unfold 2 { g g d d | e e b b }
+      %Takt 42—45
+      \repeat unfold 2 {
+        \tuplet 3/2 { g4 a b } \tuplet 3/2 { c b c } | \tuplet 3/2 { b c d } \tuplet 3/2 { e d e }
+      }
     }
   }
   \midi {}
