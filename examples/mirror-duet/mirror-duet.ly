@@ -13,6 +13,10 @@
     \tempo "Allegro" 4 = 120
     \clef "treble"
     \set Staff.midiInstrument = "violin"
+    \relative {
+      %Takt 1—5
+      d''1 | e1 | d4 c d2 | c4 b c2 | b4 a b2
+    }
   }
   \midi {}
   \layout {}
