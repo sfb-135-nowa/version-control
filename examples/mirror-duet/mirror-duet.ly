@@ -15,13 +15,13 @@
     \set Staff.midiInstrument = "violin"
     \relative {
       %Takt 1—5
-      d''2 | e | d8 c d4 | c8 b c4 | b8 a b4
+      d''2 | e | d8( c) d4 | c8( b) c4 | b8( a) b4
       %Takt 6—13
-      b8 b c16 b c b | a8 g g b | b8 b c16 b c b | a8 g g b
-      b8 b a16 b a b | c8 d d b | b8 b a16 b a b | c8 d d b
+      \repeat unfold 2 { b8 b c16 b c b | a8( g) g( b) }
+      \repeat unfold 2 { b8 b a16 b a b | c8( d) d( b) }
       %Takt 14—17
       \repeat unfold 2 {
-        \tuplet 3/2 { a8 b a } \tuplet 3/2 { b c d } | \tuplet 3/2 { fis, g fis } \tuplet 3/2 { g a b }
+        \tuplet 3/2 { a8( b a) } \tuplet 3/2 { b( c d) } | \tuplet 3/2 { fis,( g fis) } \tuplet 3/2 { g( a b) }
       }
       %Takt 18—21
       c8 c g g | e' e b b | g' g d d | e e b b
@@ -34,13 +34,13 @@
       \repeat unfold 2 { g g d d | e e b b }
       %Takt 42—45
       \repeat unfold 2 {
-        \tuplet 3/2 { g8 a b } \tuplet 3/2 { c b c } | \tuplet 3/2 { b c d } \tuplet 3/2 { e d e }
+        \tuplet 3/2 { g8( a b) } \tuplet 3/2 { c( b c) } | \tuplet 3/2 { b( c d) } \tuplet 3/2 { e( d e) }
       }
       %Takt 46—53
-      \repeat unfold 2 { d8 b b c | d16 e d e d8 d }
-      \repeat unfold 2 { g b b a | g16 fis g fis g8 g }
+      \repeat unfold 2 { d8( b) b( c) | d16 e d e d8 d }
+      \repeat unfold 2 { g( b) b( a) | g16 fis g fis g8 g }
       %Takt 54—58
-      d g e d | c e d c | b d c b | a2 | b
+      d( g) e( d) | c( e) d( c) | b( d) c( b) | a2 | b
     }
   }
   \midi {}
