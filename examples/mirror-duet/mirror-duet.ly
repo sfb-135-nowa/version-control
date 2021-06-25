@@ -1,16 +1,15 @@
 \version "2.20.0"
 
 \header {
-  title = "Scherzo-duetto (1787, postumo)"
+  title = "Vier Spiegelkanons"
   composer = "W. A. Mozart"
-  instrument = "Per [2] violini (oboi o clarini)"
+  instrument = "2 Violinen"
 }
 
 \score {
   \new Staff {
     \key g \major
     \time 2/4
-    \tempo "Allegro moderato"
     \clef "treble"
     \set Staff.midiInstrument = "violin"
     \relative {
@@ -31,18 +30,21 @@
       %Takt 30—37
       d,,8 d g g | e e a a | fis fis b b | g g c c | a a d d | b b e e | c c fis fis | d d g g
       %Takt 38—41
-      \repeat unfold 2 { g g d d | e e b b }
+      \repeat unfold 2 { d d a a | b b fis fis }
       %Takt 42—45
       \repeat unfold 2 {
         \tuplet 3/2 { g8( a b) } \tuplet 3/2 { c( b c) } | \tuplet 3/2 { b( c d) } \tuplet 3/2 { e( d e) }
       }
       %Takt 46—53
       \repeat unfold 2 { d8( b) b( c) | d16 e d e d8 d }
-      \repeat unfold 2 { g( b) b( a) | g16 fis g fis g8 g }
+      g b b a | g16 fis g fis g8 g | g( b) b( a) | g16 fis g fis g8 g
       %Takt 54—58
-      d( g) e( d) | c( e) d( c) | b( d) c( b) | a2 | b
+      b,( g') e( d) | c( e) d( c) | b d c b | a2 | b
     }
   }
   \midi {}
   \layout {}
+  \header {
+    piece = "Allegretto"
+  }
 }
