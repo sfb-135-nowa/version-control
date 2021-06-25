@@ -1,9 +1,9 @@
 \version "2.20.0"
 
 \header {
-  title = "Mirror duet"
+  title = "Scherzo-duetto (1787, postumo)"
   composer = "W. A. Mozart"
-  instrument = "two violins"
+  instrument = "Per [2] violini (oboi o clarini)"
 }
 
 \score {
