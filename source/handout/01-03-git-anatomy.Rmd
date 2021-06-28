@@ -1,0 +1,86 @@
+# Git anatomy
+
+This chapter describes the building blocks of a git project and how the version history of an existing git project can be searched and restored.
+This can even be useful if you decide not to use git in your projects.
+
+## Repository
+
+A repository (repo) is simply a hidden physical folder named _.git_ which contains a version history in the git-specific file structure and data formats.
+It can sit somewhere on your local machine or on a server.
+In general, git assumes that the folder which contains the repo
+is the root folder of your actual project where you work with your files and that you want to put under version control.
+So a project that is versioned with git mostly contains a _.git_ folder.
+
+When a project folder is put under version control and gets a _.git_ folder,
+this folder is managed by git, and thus is called worktree or working copy.
+The content of the work tree is simply a working copy of the most recent version.
+You can add new versions from changes made to the working copy, and you can restore versions from the history as working copy.
+Of course you can quit this contract and free your project by simply deleting the _.git_ folder.
+
+## Remote repos and distributed git
+
+Each repo can store URL references to one or more other repos (from servers, colleagues, etc.) and fetch their complete version history.
+These references are called _remotes_, and it's no problem to fetch multiple version histories.
+Git is decentralized or distributed, which means that it actually doesn't know the concept of a central main repo.
+You could even reference each other and fetch each other's work, but the more common workflow is to build a centralized structure by having a repo on a server where every collaborator can fetch from and where new versions can be pushed to.
+Git only talks to the remotes when you want to fetch or push new versions.
+The actual work is always done locally, so it remains quick, and if the server would crash, you still have the complete history and were able to copy it to the server again.
+
+If you discover an interesting repo on a server, you might want to view it locally.
+You could manually create a new local repo, add the remote, fetch its history, and restore its most recent version to the working copy.
+Because this is such a usual process, it has become a combined git concept named _cloning_.
+`git clone <URL>` is the command to quickly setup a server repo locally and get on working.
+
+If a repo can be publicly viewed, you wont have any problems to clone it.
+But if the access is restricted or you want to push to the repo, you will have to create an account for the respective platform and setup authentication.
+Platforms like <github.com> and <gitlab.com> offer two different common methods: HTTPS with personal access token (PAT) and SSH with public key.
+But sometimes, only one of them is available on a server.
+The self-hosted NOWA gitlab only supports HTTPS, but no SSH.
+In Git Tower, you can add your account in the Services view using a PAT.
+On Windows, you can use [PuTTY] to create and manage your SSH keys.
+
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/
+
+## Commit history
+
+What has been called version until now is called _commit_ in git lingo.
+A commit represents a full project state, has some metadata, an alphanumeric ID and the changed data.
+A repo has something like a state variable named _head_ which stores the information of a currently active commit using the commit ID.
+Every commit can be remembered as _head_ and restored as working copy. This is called _checkout_.
+When a new commit is created, it references the current head as its predecessor and becomes the new head afterwards.
+
+A commit can have more than one successor which can be achieved by checking out the same commit and creating new commits repeatedly.
+This results in a tree graph structure, the git graph.
+You can follow the leaves of a tree (the most recent commits) and mostly you will reach the root (the initial commit).
+This can lead to the impression of linearity, but in fact, the commits are organized in a tree structure.
+
+Git can infer the changes that a commit introduced compared to its predecessor.
+One can use the history view in Git Tower, or the `git log` and `git show` commands on the command line.
+Git doesn't track the user's actions, but it simply compares the two commits and analyzes the difference.
+A file itself can be added, modified, or deleted.
+To indicate changes within a text file, git uses a special representation for the found difference, the [unified diff][diff] format
+Diff prepends added and removed lines with plus and minus signs.
+Modified lines are indicated by a deletion and an addition.
+This is just a representation or interchange format to communicate file changes, not the internal storage format.
+Unfortunately, the diff view doesn't work on binary files like PDF or Office files.
+You'll have to restore them and compare them by hand or find a better diff tool.
+It is possible to setup your own diff tools in git, so they are used instead of the textual diff format.
+Users of the IntelliJ IDE can use its diff integration.
+
+[diff]: https://en.wikipedia.org/wiki/Diff#Unified_format
+
+## Tags and branches for navigating the tree
+
+Having to navigate the tree using commit IDs sounds really uncomfortable, But luckily, we have tags and branches.
+These conceptually work like bookmarks which map a nice name to a commit ID.
+Git implements them as small text files where the name is the tag or branch name, and the content is the commit ID.
+You can checkout tags and branches like commits, which stores them as _head_.
+
+Tags really work like bookmarks. They can be used to label important commits where you want to be able to return quickly.
+These could be releases, but also good starting points from where you want to diverge multiple times.
+
+Branches actually work like _head_ in that a branch advances when it is currently active (stored as _head_) and a new commit is created.
+Instead of advancing _head_ to the new commit, the active branch advances to the new commit and remains in _head_.
+You can switch between your branches via _checkout_ and advance them by adding new commits.
+You're just adding commits to the tree and advancing branches, but you can linearly follow the currently most recent commit of a branch (a leaf) to the root, and get the impression of separate contexts.
+This branching implementation is super-fast because it doesn't need to copy any data files.
