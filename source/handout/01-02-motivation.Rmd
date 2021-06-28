@@ -1,0 +1,72 @@
+# Motivation
+
+In this introductory chapter, you will learn what makes version control with git so special,
+and how it can be useful for research projects
+
+## Meaningful versions
+
+Git doesn't create automatic time-based backups, but the user actively decides to create versions after introducing changes to the project files.
+The user decides when a new version is created and which changes should go into that version.
+This makes it possible to group changes into sets that represent a higher-level action, meaningful versions.
+In addition, each version contains some metadata like author, creation date, and a user-provided description.
+
+## Version history and comparing versions
+
+The version history can be viewed and each version can be completely or partially restored,.
+Instead of having many independent file copies, each version represents a full project state.
+So the project can be reset to any versioned state in the past.
+The version history can be subsetted, e.g. to show only versions that changed a given file.
+
+Versions cannot only be restored or viewed invididually, but it's also possible to compare versions or individual files in different versions.
+Change sets are essential for version creation, but they are also used for retrospectively viewing which changes were introduced by a version and for version comparisons.
+
+Normally, versions are not deleted.
+It is possible to rewrite or delete versions, but this has to be done deliberately and doesn't happen by mistake.
+
+## Parallel work
+
+Git allows for easily creating diverging parallel working contexts in one project which can also be reintegrated.
+A context can adopt the work from another context.
+This supports a large amount of different working scenarios:
+
+- Collaboration without overwriting each other's work
+- Trying out different approaches without poluting the main project
+- Maintaining multiple variants of a product, e.g., a series of psychophysical experiments
+
+## Fast and reliable
+
+It might come to mind that these operations like restoring versions or copying work from contexts must be slow and heavy.
+But they are extremely fast and reliable, because git doesn't need to move file copies around.
+Git doesn't interrupt your workflow with “Copying 20,000 files”, and projects rarely become corrupted by themselves.
+Of course a project can result in a strange state by improper usage, but it rarely breaks randomly.
+
+## Working with remotes
+
+A git project can be copied to a remote server.
+This supports several working scenarios:
+
+Backup
+: You can successively upload your local work to the remote copy on the server and download it on another computer.
+
+Sharing
+: You can share the project with the public or with team members for reuse or review.
+
+Collaboration
+: You can collaborate with your team members or co-workers on the project.
+
+## Flexibility and separation of concerns
+
+Git is very flexible in terms of versioned content and working environment.
+It doesn't make many assumptions about the content, thus it can be used for any content type (code, text, data),
+but some functionalities work better with text files than with binary files
+because it was originally created for source code and not for binary artefacts.
+
+One implication of this content agnosticity is that it always works the same way and follows the same principles.
+If you have once learned its usage, you have acquired highly reusable knowledge that can also be a valuable occupational skill.
+Besides, git is less interweaved with your productivity tools, thus you get a clear separation between being productive and versioning your work.
+Because git is not just a program but a technology, there is a range of different git frontends for a variety of environments.
+You can choose what best fits your needs.
+
+- The traditional command line tool
+- Graphical standalone clients like Git Tower or GitKraken
+- IDE integrations, e.g. in VS Code or IntelliJ
