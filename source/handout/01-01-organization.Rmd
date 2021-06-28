@@ -1,0 +1,36 @@
+# (PART) Concepts and basic workflows {-}
+
+# Organization
+
+In this session, the participants familiarize themselves with version control as a working method and get the opportunity to practice the basic Git workflows.
+They will be able to:
+
+- Explore existing Git repositories, browse the version history, compare versions, extract data from older versions
+- Edit data in a repo and add new versions,, make use of Git's features for parallel working contexts
+- Decide if Git is suitable for their needs
+
+## Agenda
+
+14:00
+: Talk: Welcome, strengths and weaknesses of version control, software
+
+14:20
+: Practice: Software setup
+
+14:30
+: Talk: Git repositories and their decentralized nature
+
+14:45
+: Practice: Cloning repositories, autentification with Gitlab
+
+15:00
+: Talk: Understanding the Git versioning structure (commits, tags, and branches)
+
+15:30
+: Practice: Browsing the Git history, answering questions
+
+16:00
+: Talk: The basic editing workflow
+
+16:30
+: Practice: Working and versioning, answering questions

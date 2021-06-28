@@ -1,0 +1,28 @@
+---
+title: Version Control with Git
+author: Tamara Cook, M.Sc[^affiliation]
+date: 29.06.2021
+lang: en-US
+documentclass: scrreprt
+bibliography: ../references.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+biblio-style: apa
+biblatexoptions: [backend=biber]
+nocite: |
+  @Chacon:2014aa
+---
+
+[^affiliation]:
+    Philipps-Universität Marburg\
+    Fachbereich Psychologie (FB06)\
+    AG Allgemeine und Biologische Psychologie\
+    Email: [tamara.cook@uni-marburg.de](mailto:tamara.cook@uni-marburg.de)
+
+# Welcome {-}
+
+This book serves as the handout and written version of a course about integrating version control with git into the research workflow
+that was created for the members of the CRC 135 and their co-workers as part of the NOWA project.
+The course is divided into two sessions:
+
+1. Concepts of version control and basic workflows
+2. Project customization and collaboration

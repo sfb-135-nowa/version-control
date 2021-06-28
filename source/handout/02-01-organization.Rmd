@@ -1,0 +1,12 @@
+# (PART) Project customization and collaboration {-}
+
+# Organization
+
+In this session, the scope extends to collaboration on Gitlab projects. These topics are covered:
+
+- Connecting Git repos with Gitlab and uploading work for backup
+- Customizing Git repos for the project content
+- Sharing Gitlab projects with co-workers for review
+- Collaborating with co-workers on a shared Gitlab project
+
+## Agenda

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-US" xml:lang="en-US">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Version Control with Git</title>
+  <meta name="description" content="Version Control with Git" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Version Control with Git" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Version Control with Git" />
+  
+  
+  
+
+<meta name="author" content="Tamara Cook, M.Sc" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="organization.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contents"><i class="fa fa-check"></i>Contents</a>
+<ul>
+<li class="chapter" data-level="0.0.1" data-path="index.html"><a href="index.html#concepts-of-version-control-and-basic-workflows"><i class="fa fa-check"></i><b>0.0.1</b> Concepts of version control and basic workflows</a></li>
+<li class="chapter" data-level="0.0.2" data-path="index.html"><a href="index.html#project-customization-and-gitlab"><i class="fa fa-check"></i><b>0.0.2</b> Project customization and Gitlab</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Concepts and basic workflows</b></span></li>
+<li class="chapter" data-level="1" data-path="organization.html"><a href="organization.html"><i class="fa fa-check"></i><b>1</b> Organization</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="organization.html"><a href="organization.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
+</ul></li>
+<li class="part"><span><b>II Project customization and collaboration</b></span></li>
+<li class="chapter" data-level="2" data-path="organization-1.html"><a href="organization-1.html"><i class="fa fa-check"></i><b>2</b> Organization</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="organization-1.html"><a href="organization-1.html#agenda-1"><i class="fa fa-check"></i><b>2.1</b> Agenda</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Version Control with Git</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Version Control with Git</h1>
+<p class="author"><em>Tamara Cook, M.Sc<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
+<p class="date" style="margin-top: 1.5em;"><em>29.06.2021</em></p>
+</div>
+<div id="welcome" class="section level1 unnumbered">
+<h1>Welcome</h1>
+<p>This book serves as the handout and written version of a course about integrating version control with git into the research workflow
+that was created for the members of the CRC 135 and their co-workers as part of the NOWA project.</p>
+<div id="contents" class="section level2 unnumbered">
+<h2>Contents</h2>
+<p>The course is divided into two sessions:</p>
+<div id="concepts-of-version-control-and-basic-workflows" class="section level3" number="0.0.1">
+<h3><span class="header-section-number">0.0.1</span> Concepts of version control and basic workflows</h3>
+<p>In this session, the participants familiarize themselves with version control as a working method and get the opportunity to practice the basic Git workflows.
+They will be able to:</p>
+<ul>
+<li>Explore existing Git repositories, browse the version history, compare versions, extract data from older versions</li>
+<li>Edit data in a repo and add new versions,, make use of Git’s features for parallel working contexts</li>
+<li>Decide if Git is suitable for their needs</li>
+</ul>
+</div>
+<div id="project-customization-and-gitlab" class="section level3" number="0.0.2">
+<h3><span class="header-section-number">0.0.2</span> Project customization and Gitlab</h3>
+<p>In this session, the scope extends to collaboration on Gitlab projects. These topics are covered:</p>
+<ul>
+<li>Connecting Git repos with Gitlab and uploading work for backup</li>
+<li>Customizing Git repos for the project content</li>
+<li>Sharing Gitlab projects with co-workers for review</li>
+<li>Collaborating with co-workers on a shared Gitlab project</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Philipps-Universität Marburg<br />
+Fachbereich Psychologie (FB06)<br />
+AG Allgemeine und Biologische Psychologie<br />
+Email: <a href="mailto:tamara.cook@uni-marburg.de">tamara.cook@uni-marburg.de</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="organization.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/edit/main/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/commits/main/index.Rmd",
+"text": null
+},
+"view": {
+"link": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/blob/main/index.Rmd",
+"text": null
+},
+"download": ["handout.pdf"],
+"toc": {
+"collapse": "section"
+},
+"info": false
+});
+});
+</script>
+
+</body>
+
+</html>
