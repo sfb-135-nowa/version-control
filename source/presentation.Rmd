@@ -13,6 +13,32 @@ csl: apa.csl
 output: revealjs::revealjs_presentation
 ---
 
-# Motivation
+# Intro and Motivation
+
+## Agenda
+
+14:00
+: Talk: Welcome, strengths and weaknesses of version control, software
+
+14:20
+: Practice: Software setup
+
+14:30
+: Talk: Git repositories and their decentralized nature
+
+14:45
+: Practice: Cloning repositories, autentification with Gitlab
+
+15:00
+: Talk: Understanding the Git versioning structure (commits, tags, and branches)
+
+15:30
+: Practice: Browsing the Git history, answering questions
+
+16:00
+: Talk: The basic editing workflow
+
+16:30
+: Practice: Working and versioning, answering questions
 
 # References
