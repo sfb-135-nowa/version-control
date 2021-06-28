@@ -1,0 +1,90 @@
+# Practice: History
+
+You should already have cloned and opened the repo in Git Tower.
+Maybe you'll want to open the project in your file browser or in the command line.
+Git Tower provides facilities for both in the File menu.
+
+## Restoring project versions
+
+If you open the history view in Git Tower, you should see many commits in reverse-chronological order and the git graph.
+You have learned that every commit represents a full project folder state,
+and it's possible to restore every commit into the working copy in order to work with it.
+The associated git command is `git checkout <revision>`, where `<revision>` can be any commit, branch or tag.
+Please try to checkout some commits, e.g. the oldest five ones,
+and observe using your file browser how files and folders appear and disappear in the project folder.
+When you have seen the effect of checkout, you can of course return to the main branch in the same way.
+
+```bash
+# Checkout initial commit
+git checkout 3e98b59e0017ef6970809f12b679aafec289539b
+# Advance to commit with some files added and extended readme
+git checkout 17289ceb2d90553d4406f26bea6427c68e5524c6
+# Step back to commit where license was added
+git checkout 777f02ccb9c4bc7d4eda4b0f5538b48637658127
+# Advance one commit
+git checkout 3a7945161a69d348ecd1ec594ca1977909bc98a9
+# Return to the main branch
+git checkout main
+```
+
+> Git rules your project folder.
+
+The history view provides a tree view that shows the complete file structure of the project associated with a given commit,
+thus it's actually not necessary to checkout the commit in order to preview the file structure, but please do so anyway.
+Git Tower offers two checkout commands:
+
+- context menu entries for commits and branches
+- Working Copy menu -> Checkout Revision …
+
+## Finding and viewing commits
+
+Restoring commits is nice, but the changes in a repo can often be viewed without having to checkout the commit
+Even if checkout is needed, how can relevant commits be found?
+
+The history view shows every commit that is reachable from any branch or tag,
+whereas selecting a branch or tag in the side bar reveals the commits reachable from exactly that branch or tag.
+The files that were changed by the currently focused commit are displayed next to the commit history in the changeset view.
+You can show the history of a given file or folder via context menu entry in the tree or changeset view.
+
+Selecting a branch in Git Tower is equivalent to `git log <revision>` on the command line.
+This command can be seen as a query tool to select how much information you need of a commit and to subset the commits you are interested in.
+The Git Pro book provides a [short summary][git history] of using `git log` and its options.
+Try e.g. `git log --stat` or `git log --oneline` to customize your log output, or `git log <file/path>` to subset the commits affecting a given file or folder.
+Much of this also applies to `git show`, which displays exactly one given revision.
+
+- Which is the newest commit of the `origin/example_mirror_duet` branch?
+- How many commits changed the _README.md_ file?
+- Which files have been affected by the `0d45a0081fe1db38fd4964a23ba4b4bfcec4987b` commit?
+
+## Interpreting changes
+
+Knowing that a file has changed wont be sufficient, and you'll also want to know how the content has been changed.
+You have learned that git has that special diff or patch representation for changes in text files, indicating added or removed lines by prepending plus and minus signs.
+Modifications are e.g. represented by a removal followed by an addition.
+Expanding a file in the Changeset view reveals the changes made to that file by the selected commit.
+The `git show` command prints the complete changeset of a commit, but it can take an additional path argument to show only changes applied to that path.
+
+Please select the `origin/example_mirror_duet` branch because we use the music example for change interpretation.
+You can have a look into its _README.md_ file to know about its content.
+Almost every commit in it changes the Lilypond source code and its output artefacts.
+The pdf and midi are binary files, so there is no diff view for them, but you can restore or open single paths or files from any commit and compare them.
+To get an impression of what has been done in this branch, you can open the pdf file from some of the commits (context menu in Changeset view).
+On the command line, you'll have to use `git checkout <revision> <path>` to restore a file or folder from a commit.
+Checkout with a path doesn't change head, but only restores the files from the given revision.
+If revision is omitted, head is used as source.
+
+- Can you verbalize from the diff what I had to do in the _mirror-duet.ly_ file in order to bring the duet into line with the edition by Schott Music?
+- When I added the music for the 2nd violin, I added an additional fix to the score environment almost at the end of the file. Can you identify it?
+- In the “Clean source file” commit of the branch I did some housekeeping on the source file where the actual content didn't change anymore.
+  Can you verbalize what I did? Why does the diff contain so many removed and added lines of music, although the meaning didn't change?
+- In this example project I have added the output files to each commit, so you can view the differences without having to install the lilypond compiler.
+  A rule of thumb is not to commit build artefacts because they can be reclaimed, but it can be reasonable to keep them in version control.
+  Please think about pros and cons for committing artefacts
+
+> Version as few files as possible, but as many as needed
+
+## Congrats
+
+If you have reached this section, you should be able to browse an existing git repo and get an overview of the work it contains.
+
+[git history]: https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
