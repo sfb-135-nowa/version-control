@@ -1,7 +1,6 @@
 pages:
   script:
     - mv build public
-    - mv public/presentation.html public/index.html
   artifacts:
     paths:
       - public

@@ -1,2 +1,2 @@
 #!/usr/bin/env Rscript
-rmarkdown::render("source/handout.Rmd")
+bookdown::render_book("source/handout", output_format = "bookdown::gitbook")

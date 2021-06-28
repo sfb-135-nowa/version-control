@@ -9,9 +9,12 @@
     "prelint": "npm run format",
     "lint": "markdownlint-cli2 **/*.{md,Rmd}",
     "spell": "cspell '**/*.{md,Rmd}'",
-    "build:slides": "./script/build-slides.R",
-    "build:handout": "./script/build-handout.R && shx mv source/handout.pdf build/",
-    "build": "npm run build:slides && npm run build:handout",
+    "build:html:slides": "./script/build-slides.R",
+    "build:html:handout": "./script/build-handout.R",
+    "build:html": "npm run build:html:slides && npm run build:html:handout",
+    "build:pdf": "./script/build-handout-pdf.R",
+    "prebuild": "shx rm -rf build",
+    "build": "npm run build:pdf && npm run build:html",
     "prepare": "husky install"
   },
   "repository": {

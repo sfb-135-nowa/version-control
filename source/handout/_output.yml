@@ -1,0 +1,10 @@
+bookdown::gitbook:
+  config:
+    toc:
+      collapse: section
+    info: no
+    sharing: no
+bookdown::pdf_book:
+  latex_engine: lualatex
+  citation_package: biblatex
+  extra_dependencies: [csquotes]

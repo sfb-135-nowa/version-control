@@ -1,0 +1,5 @@
+output_dir: ../../build
+book_filename: handout.Rmd
+view: https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/blob/main/%s
+history: https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/commits/main/%s
+edit: https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/edit/main/%s
