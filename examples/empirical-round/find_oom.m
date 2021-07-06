@@ -1,4 +1,6 @@
 function oom = find_oom(e)
+  # Check if input is a numeric scalar value
+  validateattributes(e, { "numeric" }, { "scalar", "finite" })
   # Only absolute value of e is needed
   e = abs(e)
   # Find 2nd significant digit of e

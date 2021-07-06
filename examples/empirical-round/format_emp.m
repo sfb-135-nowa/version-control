@@ -1,4 +1,7 @@
 function printed = format_emp(x, e)
+  # Check if inputs are numeric scalar values
+  validateattributes(x, { "numeric" }, { "scalar", "finite" })
+  validateattributes(e, { "numeric" }, { "scalar", "finite" })
   oom = find_oom(e)
   printed = 10 ^ oom * round(x / (10 ^ oom))
   if(printed == 0)
