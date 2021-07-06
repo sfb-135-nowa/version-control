@@ -14,6 +14,8 @@ function printed = format_emp(x, e)
     printed = sprintf('%d', printed)
   end
 end
+%!demo
+%! format_emp(50.38, 6.4)
 %!test
 %! pkg load io
 %! cases_csv = csv2cell("tests.csv")
