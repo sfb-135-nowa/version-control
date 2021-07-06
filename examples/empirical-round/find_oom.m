@@ -11,4 +11,10 @@ function oom = find_oom(e)
     oom = signif2 + 1
   end
 end
-%!assert(find_oom(-0.24), -1)
+%!test
+%! pkg load io
+%! cases_csv = csv2cell("tests.csv")
+%! cases = cell2struct(cases_csv(2:end,:).', cases_csv(1,:))
+%! for i = 1:length(cases)
+%!   assert(find_oom(cases(i).se), cases(i).oom)
+%! end
