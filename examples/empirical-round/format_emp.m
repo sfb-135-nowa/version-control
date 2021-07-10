@@ -1,4 +1,8 @@
 function printed = format_emp(x, e)
+  # Check for second argument
+  if(nargin == 1)
+    e = x
+  end
   # Check if inputs are numeric scalar values
   validateattributes(x, { "numeric" }, { "scalar", "finite" })
   validateattributes(e, { "numeric" }, { "scalar", "finite" })

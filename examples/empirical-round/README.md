@@ -7,11 +7,13 @@ It has been ported from an [R package][mpformatr] that I created a few years ago
 ## Usage
 
 The `format_emp` takes a number to be formatted and a measurement error.
+If the second argument is omitted, the first input is used as measurement error and as value to be formatted.
 
 ```matlab
 mean = 50.38
 sem = 6.4
 format_emp(mean, sem)
+format_emp(sem)
 ```
 
 ## Implemented Rounding Convention
