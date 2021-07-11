@@ -29,14 +29,28 @@ The following rules are implemented to find this order of magnitude:
 
 ## Tests
 
-The _tests.csv_ file contains a collection of different test cases used to test the Matlab code.
+Octave [allows the integration of testing and demonstration code][octave-tests] in the source code files themselves as dedicated comments.
+The _tests.csv_ file contains a collection of different test cases used to test the Matlab functions included in this example.
+This strategy of separating testing data from code keeps the tests portable.
 The dataset consists of the following variables:
 
 - `center` contains values of an arbitrary measurement scale. This could be measurement values, but also statistical values that preserve their input scale.
 - `se` contains corresponding (estimated) measurement errors.
 - `oom` contains the decimal place to which the values in this case should be rounded.
-- `center_exp` contains the values of `center`, how they should be formatted.
-- `se_exp` contains the values of `se`, how they should be formatted.
+- `center_exp` contains the expected values of `center`, how they should be formatted.
+- `se_exp` contains the expected values of `se`, how they should be formatted.
+
+[Octave] and the [IO package][io-package] must be installed in order to run the tests in Octave.
+Run octave in this example's directory and execute the following commands:
+
+```matlab
+# Install io from octave forge, if not already done
+pkg install -forge io
+# Test the format_emp function
+test format_emp
+# Test the find_oom helper function
+test find_oom
+```
 
 ## License
 
@@ -44,3 +58,6 @@ The content in this example is licensed under the [MIT license][mit].
 
 [mpformatr]: https://github.com/tamaracha/mpformatr
 [mit]: https://mit-license.org
+[octave]: https://www.gnu.org/software/octave/download
+[octave-tests]: https://wiki.octave.org/Tests
+[io-package]: https://octave.sourceforge.io/io/
