@@ -2,7 +2,7 @@
 
 In scientific writing, empirical numbers should be rounded according to their estimated precision.
 This example contains a Matlab/Octave function which rounds and formats a number according to its estimated measurement error.
-It has been ported from an [R package][mpformatr] that I created a few years ago for my thesis writing.
+It has been ported from an [R package][mpformatr] that I created a few years ago for reproducible report generation.
 
 ## Usage
 
