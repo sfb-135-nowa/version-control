@@ -62,7 +62,7 @@ Please configure one of the editors listed [in this appendix of Git Pro][editor-
 
 ### Default branch
 
-When a new repo is initialized, Git creates a primary branch as a starting point to work with immediately.
+When a new repository is created, Git creates a primary branch as a starting point to work with immediately.
 This branch often represents the current stable version of the project and is set as HEAD on hosting platforms like Gitlab or Github.
 Historically, the default name of this primary branch has been “master”, but Git has added a config setting to customize this name.
 A cultural change has occurred in the tech community which considers the master/slave terminology in today's technical applications as inappropriate, antiquated, and offensive,
@@ -74,6 +74,25 @@ The migration process is inevitable but still in progress, that's why explicitly
 # Create new repos with a primary branch called main
 git config --global init.defaultBranch main
 ```
+
+## Creating a git repository
+
+A repository is just a hidden _.git_ directory in the working copy root,
+and Git can add a pristine repository to any physical directory, be it empty or an existing project.
+This pristine state of the new repository can be viewed as the root of the history graph, a virtual zero commit.
+Afterwards, Git automatically creates and activates a primary branch one can immediately work with.
+
+### Git Tower
+
+1. Go to Repositories view and hit “Create new local repository” in context menu.
+2. Create a new directory or choose an existing one where you want to create a Git repository.
+3. The new repository is added to the Repositories view.
+
+### Command line
+
+1. Create a new directory or choose an existing one that you want to turn into a Git repository.
+2. Open a terminal in this directory.
+3. Create a new git repository by running `git init`.
 
 [editor-config]: https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
 [github-commit-email]: https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
