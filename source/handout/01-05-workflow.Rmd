@@ -2,3 +2,78 @@
 
 After learning to explore existing git repos, being productive with git is the next objective.
 This chapter describes the workflow of integrating your changes into a new or existing project.
+
+## Setup
+
+Before you create your first commits, you have to configure a few settings:
+
+Commit identity
+: Your name and email address you want to be associated with your commits
+
+Editor
+: The text editor that should be opened when Git asks you for text input, e.g., commit messages.
+
+Default branch
+: The default name of a repo's primary branch
+
+Git has a subcommand named `git config` which is used to customize Git's behavior on your local machine via settings.
+There are many settings, and a setting can be configured for a single repo,
+or as a (global) user default which is used for every repo where this setting isn't configured.
+Here we will just set some user default settings.
+Config settings are never persisted to the history or shared with collaborators, because they customize your working environment.
+Git Tower doesn't provide a full interface to the config settings, and you partially need the command line.
+
+```bash
+# Display full user config
+git config --global -l
+# Display local repo config with merged global config
+git config -l
+```
+
+### Commit identity
+
+This identity is persisted into each of your commits and visible for everyone who can see your commits, thus it should be properly set.
+It's just descriptive metadata, Git itself doesn't verify your email.
+The actual identity data becomes more critical in conjunction with hosting platforms like Github or Gitlab,
+because the platforms offer more security features and use the email to attribute your commits to your platform account.
+Github provides [anonymized email addresses][github-commit-email] for users who don't want to expose their personal email.
+
+In Git Tower, you can configure your user name and email via Preferences -> Git Config.
+As a convenience feature provided by Git Tower, you can also store multiple identities under Preferences -> User Profiles, e.g., for work and private commits.
+On the command line, use these commands to configure your identity:
+
+```bash
+# Please replace the identity values with your identity
+git config --global user.name "Tamara Cook, M.Sc."
+git config --global user.email tamara.cook@uni-marburg.de
+# To display the current values, execute without second argument
+git config --global user.name
+git config --global user.email
+```
+
+### Editor
+
+Git needs the program path of your preferred text editor.
+When Git asks for text input, it opens this editor in a special mode where you can enter text,
+and Git waits until you confirm your input by saving and closing the document.
+In Git Tower, this setting will rarely be used.
+If you'd never use the command line, you could skip this step, but it is recommended as a precaution.
+Please configure one of the editors listed [in this appendix of Git Pro][editor-config] (table 4).
+
+### Default branch
+
+When a new repo is initialized, Git creates a primary branch as a starting point to work with immediately.
+This branch often represents the current stable version of the project and is set as HEAD on hosting platforms like Gitlab or Github.
+Historically, the default name of this primary branch has been “master”, but Git has added a config setting to customize this name.
+A cultural change has occurred in the tech community which considers the master/slave terminology in today's technical applications as inappropriate, antiquated, and offensive,
+and thus strives to replace these terms with more neutral ones in technical speech.
+Git and platforms like Gitlab and Github support this movement and have chosen “main” as the new default branch name.
+The migration process is inevitable but still in progress, that's why explicitly configuring the default branch is part of the first git setup for the time being.
+
+```bash
+# Create new repos with a primary branch called main
+git config --global init.defaultBranch main
+```
+
+[editor-config]: https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
+[github-commit-email]: https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
