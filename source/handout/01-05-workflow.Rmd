@@ -94,5 +94,16 @@ Afterwards, Git automatically creates and activates a primary branch one can imm
 2. Open a terminal in this directory.
 3. Create a new git repository by running `git init`.
 
+## Creating new commits
+
+We already know that a new commit contains the differences to the currently active commit (HEAD), and that the new commit becomes HEAD after it has been created.
+So the standard workflow is creating a sequence of commits during work.
+Creating commits is an iterative explicit workflow which may need some habit building,
+but can be a tool for structuring one's thoughts and making work results visible.
+
+- Edit your working copy
+- View and select changes in the working copy compared to the current HEAD
+- Create new commit
+
 [editor-config]: https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
 [github-commit-email]: https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
