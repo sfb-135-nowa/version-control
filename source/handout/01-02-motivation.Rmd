@@ -70,3 +70,10 @@ You can choose what best fits your needs.
 - The traditional command line tool
 - Graphical standalone clients like Git Tower or GitKraken
 - IDE integrations, e.g. in VS Code or IntelliJ
+
+## General and special tools
+
+Git is a brilliant version control system, but it is also an enormous collection of tools developed by ambitious people who wanted to solve very specific problems the most efficient way.
+For most problems, a highly optimized but specialized solution exists somewhere in the mess of details.
+This course aims to introduce a consistent concept model and a subset of general-use tools which can be intuitively combined to accomplish most usual workflow tasks.
+You will be able to extend your skills with more specific solutions, as soon as you want to become more efficient.
