@@ -1,0 +1,4 @@
+# Workflow
+
+After learning to explore existing git repos, being productive with git is the next objective.
+This chapter describes the workflow of integrating your changes into a new or existing project.
