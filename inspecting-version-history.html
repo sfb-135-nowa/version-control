@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en-US" xml:lang="en-US">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Inspecting version history | Version Control with Git</title>
+  <meta name="description" content="3 Inspecting version history | Version Control with Git" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Inspecting version history | Version Control with Git" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Inspecting version history | Version Control with Git" />
+  
+  
+  
+
+<meta name="author" content="Tamara Cook, M.Sc" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="motivation.html"/>
+<link rel="next" href="practice-history.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="part"><span><b>I Concepts and basic workflows</b></span></li>
+<li class="chapter" data-level="1" data-path="organization.html"><a href="organization.html"><i class="fa fa-check"></i><b>1</b> Organization</a><ul>
+<li class="chapter" data-level="1.1" data-path="organization.html"><a href="organization.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>2</b> Motivation</a><ul>
+<li class="chapter" data-level="2.1" data-path="motivation.html"><a href="motivation.html#meaningful-versions"><i class="fa fa-check"></i><b>2.1</b> Meaningful versions</a></li>
+<li class="chapter" data-level="2.2" data-path="motivation.html"><a href="motivation.html#version-history-and-comparing-versions"><i class="fa fa-check"></i><b>2.2</b> Version history and comparing versions</a></li>
+<li class="chapter" data-level="2.3" data-path="motivation.html"><a href="motivation.html#parallel-work"><i class="fa fa-check"></i><b>2.3</b> Parallel work</a></li>
+<li class="chapter" data-level="2.4" data-path="motivation.html"><a href="motivation.html#fast-and-reliable"><i class="fa fa-check"></i><b>2.4</b> Fast and reliable</a></li>
+<li class="chapter" data-level="2.5" data-path="motivation.html"><a href="motivation.html#working-with-remotes"><i class="fa fa-check"></i><b>2.5</b> Working with remotes</a></li>
+<li class="chapter" data-level="2.6" data-path="motivation.html"><a href="motivation.html#flexibility-and-separation-of-concerns"><i class="fa fa-check"></i><b>2.6</b> Flexibility and separation of concerns</a></li>
+<li class="chapter" data-level="2.7" data-path="motivation.html"><a href="motivation.html#general-and-special-tools"><i class="fa fa-check"></i><b>2.7</b> General and special tools</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html"><i class="fa fa-check"></i><b>3</b> Inspecting version history</a><ul>
+<li class="chapter" data-level="3.1" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#repository"><i class="fa fa-check"></i><b>3.1</b> Repository</a></li>
+<li class="chapter" data-level="3.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#remote-repos-and-distributed-git"><i class="fa fa-check"></i><b>3.2</b> Remote repos and distributed git</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#cloning-as-a-common-shortcut"><i class="fa fa-check"></i><b>3.2.1</b> Cloning as a common shortcut</a></li>
+<li class="chapter" data-level="3.2.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#authentication-with-protected-repos"><i class="fa fa-check"></i><b>3.2.2</b> Authentication with protected repos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#commit-history"><i class="fa fa-check"></i><b>3.3</b> Commit history</a></li>
+<li class="chapter" data-level="3.4" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#navigating-the-tree-tags-and-branches"><i class="fa fa-check"></i><b>3.4</b> Navigating the tree: Tags and branches</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#branches"><i class="fa fa-check"></i><b>3.4.1</b> Branches</a></li>
+<li class="chapter" data-level="3.4.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#tags"><i class="fa fa-check"></i><b>3.4.2</b> Tags</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#comparing-commits"><i class="fa fa-check"></i><b>3.5</b> Comparing commits</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="practice-history.html"><a href="practice-history.html"><i class="fa fa-check"></i><b>4</b> Practice: History</a><ul>
+<li class="chapter" data-level="4.1" data-path="practice-history.html"><a href="practice-history.html#exploring-commits-and-their-file-changes"><i class="fa fa-check"></i><b>4.1</b> Exploring commits and their file changes</a></li>
+<li class="chapter" data-level="4.2" data-path="practice-history.html"><a href="practice-history.html#exploring-commits-and-their-associated-project-state"><i class="fa fa-check"></i><b>4.2</b> Exploring commits and their associated project state</a></li>
+<li class="chapter" data-level="4.3" data-path="practice-history.html"><a href="practice-history.html#interpreting-file-content-changes"><i class="fa fa-check"></i><b>4.3</b> Interpreting file content changes</a></li>
+<li class="chapter" data-level="4.4" data-path="practice-history.html"><a href="practice-history.html#congrats"><i class="fa fa-check"></i><b>4.4</b> Congrats</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>5</b> Workflow</a><ul>
+<li class="chapter" data-level="5.1" data-path="workflow.html"><a href="workflow.html#setup"><i class="fa fa-check"></i><b>5.1</b> Setup</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="workflow.html"><a href="workflow.html#commit-identity"><i class="fa fa-check"></i><b>5.1.1</b> Commit identity</a></li>
+<li class="chapter" data-level="5.1.2" data-path="workflow.html"><a href="workflow.html#editor"><i class="fa fa-check"></i><b>5.1.2</b> Editor</a></li>
+<li class="chapter" data-level="5.1.3" data-path="workflow.html"><a href="workflow.html#default-branch"><i class="fa fa-check"></i><b>5.1.3</b> Default branch</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="workflow.html"><a href="workflow.html#creating-a-git-repository"><i class="fa fa-check"></i><b>5.2</b> Creating a git repository</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="workflow.html"><a href="workflow.html#git-tower"><i class="fa fa-check"></i><b>5.2.1</b> Git Tower</a></li>
+<li class="chapter" data-level="5.2.2" data-path="workflow.html"><a href="workflow.html#command-line"><i class="fa fa-check"></i><b>5.2.2</b> Command line</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="workflow.html"><a href="workflow.html#creating-new-commits"><i class="fa fa-check"></i><b>5.3</b> Creating new commits</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="practice-workflow.html"><a href="practice-workflow.html"><i class="fa fa-check"></i><b>6</b> Practice: Workflow</a><ul>
+<li class="chapter" data-level="6.1" data-path="practice-workflow.html"><a href="practice-workflow.html#general-workflow"><i class="fa fa-check"></i><b>6.1</b> General workflow</a></li>
+<li class="chapter" data-level="6.2" data-path="practice-workflow.html"><a href="practice-workflow.html#suggested-improvements"><i class="fa fa-check"></i><b>6.2</b> Suggested improvements</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="practice-workflow.html"><a href="practice-workflow.html#readme-file"><i class="fa fa-check"></i><b>6.2.1</b> Readme file</a></li>
+<li class="chapter" data-level="6.2.2" data-path="practice-workflow.html"><a href="practice-workflow.html#matlab-compatibility"><i class="fa fa-check"></i><b>6.2.2</b> Matlab compatibility</a></li>
+<li class="chapter" data-level="6.2.3" data-path="practice-workflow.html"><a href="practice-workflow.html#variable-collision"><i class="fa fa-check"></i><b>6.2.3</b> Variable collision</a></li>
+<li class="chapter" data-level="6.2.4" data-path="practice-workflow.html"><a href="practice-workflow.html#function-documentation"><i class="fa fa-check"></i><b>6.2.4</b> Function documentation</a></li>
+<li class="chapter" data-level="6.2.5" data-path="practice-workflow.html"><a href="practice-workflow.html#license-file"><i class="fa fa-check"></i><b>6.2.5</b> License file</a></li>
+<li class="chapter" data-level="6.2.6" data-path="practice-workflow.html"><a href="practice-workflow.html#tests"><i class="fa fa-check"></i><b>6.2.6</b> Tests</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Project customization and collaboration</b></span></li>
+<li class="chapter" data-level="7" data-path="organization-1.html"><a href="organization-1.html"><i class="fa fa-check"></i><b>7</b> Organization</a><ul>
+<li class="chapter" data-level="7.1" data-path="organization-1.html"><a href="organization-1.html#agenda-1"><i class="fa fa-check"></i><b>7.1</b> Agenda</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Version Control with Git</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inspecting-version-history" class="section level1">
+<h1><span class="header-section-number">3</span> Inspecting version history</h1>
+<p>This chapter describes the building blocks of a git project and how the version history of an existing git project can be inspected.
+This can even be useful if you decide not to use git in your projects.</p>
+<div id="repository" class="section level2">
+<h2><span class="header-section-number">3.1</span> Repository</h2>
+<p>A repository (repo) is simply a hidden physical folder named <em>.git</em> which contains a version history in the git-specific file structure and data formats.
+It can sit somewhere on your local machine or on a server.
+In general, git assumes that the folder which contains the repo
+is the root folder of your actual project where you work with your files and that you want to put under version control.
+So a project that is versioned with git mostly contains a <em>.git</em> folder.</p>
+<p>When a project folder is put under version control and gets a <em>.git</em> folder,
+this folder is managed by git and is called worktree or working copy.
+The content of the work tree is simply a copy of the most recent version.
+It is the place where authors work on their project and introduce their changes to git by creating new versions.
+In this chapter, we are only interested in the version history which can be completely inspected without touching the working copy.
+It is important to understand that the history is the essential core part,
+whereas the working copy is more like a writing channel to the repo.
+There is even a repo variant with no working copy for situations when a repo is not used for creating new versions.
+The working copy will be the central part of the workflow chapter.</p>
+</div>
+<div id="remote-repos-and-distributed-git" class="section level2">
+<h2><span class="header-section-number">3.2</span> Remote repos and distributed git</h2>
+<p>Each repo can store URL references to one or more other repos (from servers, colleagues, etc.) and fetch their complete version history.
+These references are called <em>remotes</em>, and it’s no problem to fetch multiple version histories.
+An URL exactly points to where a <em>.git</em> directory is located.
+Git is decentralized or distributed, which means that it actually doesn’t know the concept of a central main repo.
+You could even reference each other and fetch each other’s work, but the more common workflow is to build a centralized structure by having a repo on a server where every collaborator can fetch from and where new versions can be pushed to.
+Git only talks to the remotes when you want to fetch or push new versions.
+The actual work is always done locally, so it remains quick, and if the server would crash, you still have the complete history and were able to copy it to the server again.</p>
+<div id="cloning-as-a-common-shortcut" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Cloning as a common shortcut</h3>
+<p>If you discover an interesting repo on a server, you might want to view it locally.
+You could manually create a new local repo, add the remote, fetch its history, and restore its most recent version to the working copy.
+Because this is such a usual process, it became a combined git concept named <em>cloning</em>.</p>
+<p>The materials and sources for this course book are versioned in a Git repository themselves.
+First, you will have to clone it from Github, because this repo is used for the exercises.
+Please visit the <a href="https://github.com/sfb-135-nowa/version-control">course repository</a> on Github.
+This is just the page URL and not necessarily the actual repo URL.
+Cloning is such a common first step that hosting platforms provide a download button which lets you copy the correct repo URL.
+On Github, this is hidden behind the Download icon above the files list.
+Please copy the HTTPS URL to the clipboard.</p>
+<p>In Git tower, go to File menu -&gt; Clone git repository, paste the repo URL in the dialog,
+and find or create a folder which should be the project folder.
+After cloning is done, go to Repository view and open the newly cloned repository which should appear on top of the list.</p>
+<p>On the command line, open a terminal in the directory that should contain the project,
+and run <code>git clone &lt;REPO_URL&gt; &lt;PROJECT_FOLDER&gt;</code>.
+If you omit the second parameter, the name will be the repo name from Github.</p>
+</div>
+<div id="authentication-with-protected-repos" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Authentication with protected repos</h3>
+<p>If a repo can be publicly viewed, you wont have any problems to clone it.
+But if the access is restricted or you want to push to the repo, you will have to create an account for the respective platform and setup authentication.
+Git supports two network protocols for remote operations, and both have their own authentication strategies:</p>
+<dl>
+<dt>HTTPS</dt>
+<dd>The “normal” web protocol with a <em>personal access token</em> for authentication, a kind of restricted password
+</dd>
+<dt>SSH</dt>
+<dd>The “more traditional” file transfer protocol with a key pair for authentication
+</dd>
+<dd>On Mac and Linux, SSH is relatively straight forward, but you can use <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a> to manage your SSH keys on Windows.
+</dd>
+<dd>I recommend you to create keys without an additional password (passphrase), because keys themselves are secure enough, and entering the passphrase becomes very distracting in the workflow.
+</dd>
+</dl>
+<p>Public services like &lt;github.com&gt; and &lt;gitlab.com&gt; offer both methods, and you’ll find detailed setup guides in their help resources.
+After setting up authentication, manually entering passwords is rarely needed.
+Sometimes, only one of them is available on a server.
+The self-hosted NOWA gitlab only supports HTTPS, but no SSH.</p>
+</div>
+</div>
+<div id="commit-history" class="section level2">
+<h2><span class="header-section-number">3.3</span> Commit history</h2>
+<p>A repository mainly contains a version history.
+In git terminology, A version is called a commit, so the history is often called commit history.
+Creating a new commit means introducing a set of project file changes to the history, each commit represents a full project state.
+The history is no collection of isolated snapshots, but a referential and differential structure.
+This also means that commits are rarely deleted.
+Rewriting and cleaning history is possible, but please consider commits as something that has happened in the past.
+We can of course revert our mistakes from the past, but that doesn’t rewrite the past.</p>
+<p>Git has the sophisticated concept of a currently active commit in a repo, this “state variable” is called HEAD in Git terminology.
+The next new commit is always based on the active commit which HEAD is pointing to.
+After creating a new commit, HEAD is set to that new commit.
+So we have an advancing HEAD state.</p>
+<div id="htmlwidget-086c199eac98186caf3e" style="width:960px;height:500px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-086c199eac98186caf3e">{"x":{"diagram":"sequenceDiagram\n    User->Git: Create initial commit with no base commit\n    Git->User: Set HEAD to initial commit\n    loop Every new commit\n        User-->Git: Create commit based on HEAD commit\n        Git-->User: Set HEAD to new commit\n    end"},"evals":[],"jsHooks":[]}</script>
+<p>In the simplest case, this mechanism builds a sequence of commits.
+The HEAD variable could even be omitted and the most recent commit could always be used as the base commit for the next new commit.
+But the user can deliberately set HEAD to any commit in the history, and this commit will act as the base for the next new commit.
+As a consequence, multiple commits can be based on the same commit because the user can return to that commit and create new commits repeatedly.
+This results in a diverging tree graph structure.
+In a tree graph, the root is reachable from every node.
+This can lead to the impression of linearity when you follow a path from leaf to root, but in fact, the graph can have diverged.
+As long as you don’t deliberately change the active commit state, you build simple commit sequences without divergence.</p>
+<p>Finally, there is a special kind of commit which can be based on two commits.
+As a consequence, diverged paths can merge again.
+The following example diagram illustrates how a result of this process can look like.</p>
+<div id="htmlwidget-b0a46e647187df8509ee" style="width:960px;height:500px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b0a46e647187df8509ee">{"x":{"diagram":"graph TB\n  A[Add Readme and restrictive license]-->B[Setup manuscript structure]\n  B-->C[Methods: Describe study design]\n  C-->D[Methods: Describe apparatus]\n  D-->E[Methods: Describe procedure]\n  E-->F[Bibliography: Add literature about more conservative method]\n  E-->G[Bibliography: Add literature about more progressive method]\n  F-->H[Introduction: Explain and reference conservative method]\n  G-->I[Introduction: Explain and reference progressive method]\n  I-->J[Methods: Rewrite around progressive method]\n  H-->K[Choose progressive method, but mention both in introduction]\n  J-->K"},"evals":[],"jsHooks":[]}</script>
+<p>If you open the cloned repo in Git Tower, you can inspect its commit history as a graph in the History view.
+The commits are shown in reverse-chronological order.
+Each commit shows its ID, date, author, and a descriptive message.
+Selecting a commit reveals the file changes associated with this commit.
+You can switch from list view to tree view which displays the full project state instead of the changes.</p>
+<p>On the command line, use the <code>git log &lt;id&gt;</code> command to list commits, and <code>git show &lt;id&gt;</code> to view exactly one commit.
+These commands can be seen as query tools for selecting and subsetting commits and the displayed information of each commit.
+The Git Pro book provides a <a href="https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History">short summary</a> of using <code>git log</code> and its options.
+If no ID is given, the active commit is used by both commands.
+Try e.g. <code>git log --stat</code> or <code>git log --oneline</code> to customize your log output, or <code>git log &lt;file/path&gt;</code> to subset the commits affecting a given file or folder.</p>
+<ul>
+<li>The unique ID is created by Git and used in Git operations where a determined commit has to be referenced,
+e.g., if you want to select or inspect a commit.</li>
+<li>Date and author are set automatically, but both can be customized.
+We will customize the author in the workflow chapter.</li>
+<li>The messages are provided by the user for each commit, they make the history meaningful and expressive.
+When you create a commit, you have to think of a message which describes the introduced set of file changes in a more semantic way.
+The flow diagram above is composed of this kind of messages.</li>
+</ul>
+</div>
+<div id="navigating-the-tree-tags-and-branches" class="section level2">
+<h2><span class="header-section-number">3.4</span> Navigating the tree: Tags and branches</h2>
+<p>When the history grows and diverges, the user can quickly get lost in the tree graph.
+Switching between parallel paths requires the user to find the leaf of the target path.
+Setting HEAD back to an older commit in order to diverge requires the user to find the correct commit again and again.
+In a graphical tool, this would be possible by visual inspection, but cumbersome.
+On the command line, working productively would be nearly impossible, because you would always have to query and enter the alphanumeric commit IDs.
+Git was originally developed for the command line, so a second important layer has been built into Git for navigational purposes: tags and branches.
+These behave like bookmarks that are created by the user to label important commits in the graph with a meaningful name.
+Both can be passed to the Git commands in place of the commit IDs to view the history, set HEAD to a desired commit, and similar operations.
+In fact, they are landmarks for the graph.
+Users normally work with this layer, and rarely have to directly work with the raw IDs.
+It is much more common to modify and delete these landmarks than it is for commits, like you can change your opinion about the importance of historical events.</p>
+<div id="branches" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Branches</h3>
+<p>Branches are made to label the leaf commit of tree paths.
+We have already seen the advancing nature of HEAD.
+HEAD stores the ID of a commit and is advanced by creating a new commit.
+This advancing behavior is the outstanding feature of branches.
+Additionally, branches have a name which is defined by the user, and branches can also reference the name of another branch instead of a commit ID.</p>
+<p>Technically, HEAD is a special branch named HEAD, a concrete example of the branch concept.
+HEAD usually doesn’t directly reference a commit, but a branch which references a commit.
+Users can deliberately set HEAD to a branch, marking this branch as active branch.
+Switching between branches is extremely fast, because it doesn’t need to copy any data files, it’s just setting a reference.
+If HEAD references a branch, advancing is forwarded to that branch instead of advancing HEAD itself.
+Creating a new commit advances the active branch to the new commit and leaves HEAD set to the branch.</p>
+<div id="htmlwidget-4c577dff41bf957c7570" style="width:960px;height:500px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4c577dff41bf957c7570">{"x":{"diagram":"sequenceDiagram\n    User->Git: Create initial commit with no base commit\nalt HEAD references branch\n    Git->User: Set branch to initial commit\nelse\n    Git->User: Set HEAD to initial commit\nend\n    loop Every new commit\nalt HEAD references branch\n        User-->Git: Create commit based on branch commit\n        Git-->User: Set branch to new commit\nelse\n        User-->Git: Create commit based on HEAD commit\n        Git-->User: Set HEAD to new commit\nend\n    end"},"evals":[],"jsHooks":[]}</script>
+<p>Git Tower displays the branches of a repo in the Branches section of the sidebar.
+You can linearly follow a branch to the root, and get the impression of separate contexts.
+An important detail to note is that the History view contains no commits that are not reachable by a branch or tag.</p>
+<p>On the command line, use the <code>git branch</code> command to list the branches in the repo.
+Then run <code>git log &lt;branch&gt;</code> or <code>git show &lt;branch&gt;</code> to inspect the history via branches.</p>
+<p>Please don’t be confused by some branches appearing also in the Remotes section of Tower’s sidebar.
+Due to its distributed architecture, Git distinguishes branches into local and remote branches.
+The local branches are the working branches as described above, remote branches reflect the current branch state of the respective remote repository.
+Git doesn’t push all local branches automatically, but a local branch is deliberately pushed by the user.
+Pushing a local branch pushes all reachable commits from this branch and updates the remote branch.
+A common workflow is creating many local branches that will never be shared.
+This enables users to distinguish between their personal working branches and those in a central collaboration repo.</p>
+</div>
+<div id="tags" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Tags</h3>
+<p>Tags are labels for important commits in the graph.
+They exist in two implementation flavors:</p>
+<dl>
+<dt>Lightweight tags</dt>
+<dd>Like branches, these have a name and store the ID of a commit, and they can be easily created and deleted.
+They are useful as temporary labels to simplify the workflow, and they are deliberately uploaded by the user.
+</dd>
+<dt>Annotated tags</dt>
+<dd>These are exactly like commits without change data.
+They become part of the commit graph, have a predecessor commit, and have metadata and messages,
+so they should be used to create more final landmarks in the graph that will never change.
+Releases are a typical example for annotated tags.
+</dd>
+</dl>
+<p>In Git Tower, tags are shown in the sidebar below the branches.
+On the command line, run <code>git tag</code> to list the local tags in the repo.</p>
+</div>
+</div>
+<div id="comparing-commits" class="section level2">
+<h2><span class="header-section-number">3.5</span> Comparing commits</h2>
+<p>How can the changes introduced by a commit be inspected?
+You have certainly worked with the track changes feature of MS word.
+Word doesn’t have to be tool agnostic and simply tracks your actions.
+In Git, the commits with descriptive messages fulfill the role of meaningful semantic actions.
+That’s why commit messages are often written in an imperative style (Rewrite chapter 3).
+Being tool agnostic, Git doesn’t track what the commit authors did in their productivity tools.
+In order to report which changes were introduced by a commit, Git compares the two project states
+of the commit and its predecessor, and represents the difference in a standardized output format as changes which affect files and file content.
+The format is just a representation or interchange format to communicate changes, not the internal storage format used by Git.</p>
+<dl>
+<dt>File changes</dt>
+<dd>Files in the project can be added, modified, or deleted.
+</dd>
+<dt>Text file content changes</dt>
+<dd>Git uses a textual representation of text changes by default, the <a href="https://en.wikipedia.org/wiki/Diff#Unified_format">unified diff</a> format
+Lines within text files can be added or deleted in this diff format.
+Diff prepends added and removed lines with plus and minus signs.
+Modified lines are composed of a deletion and an addition.
+</dd>
+<dt>Binary file content changes</dt>
+<dd>For binary files like PDF, images, or Office files, Git unfortunately doesn’t have a representation of file content changes.
+</dd>
+</dl>
+<p>Graphical (diff) tools for comparing file content side by side can integrate with Git,
+but this course concentrates on the traditional textual diff.
+IDE programs like VS Code or IntelliJ also contain their own graphical diff tool.
+You’ll find many online resources about diff tools and Git.</p>
+<p>In Git Tower, file changes are displayed next to the selected commit in the history.
+Files can be expanded to show their diff.
+On the command line, <code>git show &lt;id&gt;</code> outputs the diff of a given commit.</p>
+<p>One more implication of this architecture is that Git can compare a commit to any other commit, not only to its predecessor.
+Comparing a commit to its predecessor can be seen as the most frequent special case of this more general approach.
+It uses the same comparing mechanisms as above and reports the difference in terms of changes or diff representations.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="motivation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="practice-history.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/edit/main/01-03-version-history.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/commits/main/01-03-version-history.Rmd",
+"text": null
+},
+"view": {
+"link": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/blob/main/01-03-version-history.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"info": false
+});
+});
+</script>
+
+</body>
+
+</html>

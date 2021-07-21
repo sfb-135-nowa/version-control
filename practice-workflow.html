@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-US" xml:lang="en-US">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Practice: Workflow | Version Control with Git</title>
+  <meta name="description" content="6 Practice: Workflow | Version Control with Git" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Practice: Workflow | Version Control with Git" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Practice: Workflow | Version Control with Git" />
+  
+  
+  
+
+<meta name="author" content="Tamara Cook, M.Sc" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="workflow.html"/>
+<link rel="next" href="organization-1.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="part"><span><b>I Concepts and basic workflows</b></span></li>
+<li class="chapter" data-level="1" data-path="organization.html"><a href="organization.html"><i class="fa fa-check"></i><b>1</b> Organization</a><ul>
+<li class="chapter" data-level="1.1" data-path="organization.html"><a href="organization.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>2</b> Motivation</a><ul>
+<li class="chapter" data-level="2.1" data-path="motivation.html"><a href="motivation.html#meaningful-versions"><i class="fa fa-check"></i><b>2.1</b> Meaningful versions</a></li>
+<li class="chapter" data-level="2.2" data-path="motivation.html"><a href="motivation.html#version-history-and-comparing-versions"><i class="fa fa-check"></i><b>2.2</b> Version history and comparing versions</a></li>
+<li class="chapter" data-level="2.3" data-path="motivation.html"><a href="motivation.html#parallel-work"><i class="fa fa-check"></i><b>2.3</b> Parallel work</a></li>
+<li class="chapter" data-level="2.4" data-path="motivation.html"><a href="motivation.html#fast-and-reliable"><i class="fa fa-check"></i><b>2.4</b> Fast and reliable</a></li>
+<li class="chapter" data-level="2.5" data-path="motivation.html"><a href="motivation.html#working-with-remotes"><i class="fa fa-check"></i><b>2.5</b> Working with remotes</a></li>
+<li class="chapter" data-level="2.6" data-path="motivation.html"><a href="motivation.html#flexibility-and-separation-of-concerns"><i class="fa fa-check"></i><b>2.6</b> Flexibility and separation of concerns</a></li>
+<li class="chapter" data-level="2.7" data-path="motivation.html"><a href="motivation.html#general-and-special-tools"><i class="fa fa-check"></i><b>2.7</b> General and special tools</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html"><i class="fa fa-check"></i><b>3</b> Inspecting version history</a><ul>
+<li class="chapter" data-level="3.1" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#repository"><i class="fa fa-check"></i><b>3.1</b> Repository</a></li>
+<li class="chapter" data-level="3.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#remote-repos-and-distributed-git"><i class="fa fa-check"></i><b>3.2</b> Remote repos and distributed git</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#cloning-as-a-common-shortcut"><i class="fa fa-check"></i><b>3.2.1</b> Cloning as a common shortcut</a></li>
+<li class="chapter" data-level="3.2.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#authentication-with-protected-repos"><i class="fa fa-check"></i><b>3.2.2</b> Authentication with protected repos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#commit-history"><i class="fa fa-check"></i><b>3.3</b> Commit history</a></li>
+<li class="chapter" data-level="3.4" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#navigating-the-tree-tags-and-branches"><i class="fa fa-check"></i><b>3.4</b> Navigating the tree: Tags and branches</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#branches"><i class="fa fa-check"></i><b>3.4.1</b> Branches</a></li>
+<li class="chapter" data-level="3.4.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#tags"><i class="fa fa-check"></i><b>3.4.2</b> Tags</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#comparing-commits"><i class="fa fa-check"></i><b>3.5</b> Comparing commits</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="practice-history.html"><a href="practice-history.html"><i class="fa fa-check"></i><b>4</b> Practice: History</a><ul>
+<li class="chapter" data-level="4.1" data-path="practice-history.html"><a href="practice-history.html#exploring-commits-and-their-file-changes"><i class="fa fa-check"></i><b>4.1</b> Exploring commits and their file changes</a></li>
+<li class="chapter" data-level="4.2" data-path="practice-history.html"><a href="practice-history.html#exploring-commits-and-their-associated-project-state"><i class="fa fa-check"></i><b>4.2</b> Exploring commits and their associated project state</a></li>
+<li class="chapter" data-level="4.3" data-path="practice-history.html"><a href="practice-history.html#interpreting-file-content-changes"><i class="fa fa-check"></i><b>4.3</b> Interpreting file content changes</a></li>
+<li class="chapter" data-level="4.4" data-path="practice-history.html"><a href="practice-history.html#congrats"><i class="fa fa-check"></i><b>4.4</b> Congrats</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>5</b> Workflow</a><ul>
+<li class="chapter" data-level="5.1" data-path="workflow.html"><a href="workflow.html#setup"><i class="fa fa-check"></i><b>5.1</b> Setup</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="workflow.html"><a href="workflow.html#commit-identity"><i class="fa fa-check"></i><b>5.1.1</b> Commit identity</a></li>
+<li class="chapter" data-level="5.1.2" data-path="workflow.html"><a href="workflow.html#editor"><i class="fa fa-check"></i><b>5.1.2</b> Editor</a></li>
+<li class="chapter" data-level="5.1.3" data-path="workflow.html"><a href="workflow.html#default-branch"><i class="fa fa-check"></i><b>5.1.3</b> Default branch</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="workflow.html"><a href="workflow.html#creating-a-git-repository"><i class="fa fa-check"></i><b>5.2</b> Creating a git repository</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="workflow.html"><a href="workflow.html#git-tower"><i class="fa fa-check"></i><b>5.2.1</b> Git Tower</a></li>
+<li class="chapter" data-level="5.2.2" data-path="workflow.html"><a href="workflow.html#command-line"><i class="fa fa-check"></i><b>5.2.2</b> Command line</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="workflow.html"><a href="workflow.html#creating-new-commits"><i class="fa fa-check"></i><b>5.3</b> Creating new commits</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="practice-workflow.html"><a href="practice-workflow.html"><i class="fa fa-check"></i><b>6</b> Practice: Workflow</a><ul>
+<li class="chapter" data-level="6.1" data-path="practice-workflow.html"><a href="practice-workflow.html#general-workflow"><i class="fa fa-check"></i><b>6.1</b> General workflow</a></li>
+<li class="chapter" data-level="6.2" data-path="practice-workflow.html"><a href="practice-workflow.html#suggested-improvements"><i class="fa fa-check"></i><b>6.2</b> Suggested improvements</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="practice-workflow.html"><a href="practice-workflow.html#readme-file"><i class="fa fa-check"></i><b>6.2.1</b> Readme file</a></li>
+<li class="chapter" data-level="6.2.2" data-path="practice-workflow.html"><a href="practice-workflow.html#matlab-compatibility"><i class="fa fa-check"></i><b>6.2.2</b> Matlab compatibility</a></li>
+<li class="chapter" data-level="6.2.3" data-path="practice-workflow.html"><a href="practice-workflow.html#variable-collision"><i class="fa fa-check"></i><b>6.2.3</b> Variable collision</a></li>
+<li class="chapter" data-level="6.2.4" data-path="practice-workflow.html"><a href="practice-workflow.html#function-documentation"><i class="fa fa-check"></i><b>6.2.4</b> Function documentation</a></li>
+<li class="chapter" data-level="6.2.5" data-path="practice-workflow.html"><a href="practice-workflow.html#license-file"><i class="fa fa-check"></i><b>6.2.5</b> License file</a></li>
+<li class="chapter" data-level="6.2.6" data-path="practice-workflow.html"><a href="practice-workflow.html#tests"><i class="fa fa-check"></i><b>6.2.6</b> Tests</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Project customization and collaboration</b></span></li>
+<li class="chapter" data-level="7" data-path="organization-1.html"><a href="organization-1.html"><i class="fa fa-check"></i><b>7</b> Organization</a><ul>
+<li class="chapter" data-level="7.1" data-path="organization-1.html"><a href="organization-1.html#agenda-1"><i class="fa fa-check"></i><b>7.1</b> Agenda</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Version Control with Git</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practice-workflow" class="section level1">
+<h1><span class="header-section-number">6</span> Practice: Workflow</h1>
+<p>In this section, you will practice the git editing workflow by contributing to a small Matlab example project
+which contains a formatting function for empirical numbers.
+Don’t worry, the project should be simple enough to get the exercises done, even if you’re not used to Matlab.
+Please make sure you have successfully finished the first git setup.</p>
+<p>The example project is located in the <em>examples/empirical-round</em> directory of our main git project.
+It’s readme file provides a brief overview of the project, its files and their purposes.
+Now, it’s your task to make some minor improvements to the project.
+You can fix issues that you found yourself, otherwise choose from the suggestions below.</p>
+<div id="general-workflow" class="section level2">
+<h2><span class="header-section-number">6.1</span> General workflow</h2>
+<p>Please try to follow these steps when you make an improvement:</p>
+<ol style="list-style-type: decimal">
+<li>Choose an issue or area you want to work on.</li>
+<li>Create a branch from the main branch with a recognizable name, and checkout the new branch: <code>git checkout -b fix_tests main</code>.</li>
+<li>Make your file modifications. Try to find multiple modifications which can be grouped into one commit, e.g., spelling errors.</li>
+<li>Stage (select) the affected files: <code>git add path/to/file</code> or <code>git add .</code> to stage everything.</li>
+<li>Commit your changes: <code>git commit</code>.</li>
+<li>Push your branch to your fork: <code>git push origin fix_tests</code></li>
+</ol>
+</div>
+<div id="suggested-improvements" class="section level2">
+<h2><span class="header-section-number">6.2</span> Suggested improvements</h2>
+<p>These suggestions are intended to quickly provide you with some todos, but you can of course create your own issues.</p>
+<div id="readme-file" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Readme file</h3>
+<p><em>README.md</em> can be improved at some places.
+You can use any text editor for editing.</p>
+<ul>
+<li>In the first paragraph, the topic introduction is very short.
+Maybe you can divide it into a topic and a project paragraph, and improve the topic introduction by providing a more detailed explanation or motivation.</li>
+<li>The sentence in line 9 is missing the word “function” before or after <code>format_emp</code>.</li>
+</ul>
+</div>
+<div id="matlab-compatibility" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Matlab compatibility</h3>
+<p>The code should run with Matlab, but comments are introduced using the <code>#</code> character.
+This is allowed in Octave for shell compatibility, but not in Matlab.
+You can make the comments compatible to Matlab by replacing <code>#</code> with <code>%</code> characters.</p>
+</div>
+<div id="variable-collision" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Variable collision</h3>
+<p>Both functions take an input parameter named <code>e</code>, but <code>e</code> is already a global constant.
+This can lead to weird behavior.
+You can fix this problem by renaming these inputs to something unique, e.g. <code>se</code>.
+Don’t forget to rename every occurrence of <code>e</code>, not just the function signature.</p>
+</div>
+<div id="function-documentation" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Function documentation</h3>
+<p>Functions meant to be called by users should have at least a short documentation comment.
+You can add a documentation comment to the <code>format_emp</code> function below the signature line which looks like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb4-1"><a href="practice-workflow.html#cb4-1"></a><span class="co">% Format empirical numbers</span></span>
+<span id="cb4-2"><a href="practice-workflow.html#cb4-2"></a><span class="co">% printed = format_emp(x, e) rounds and formats the measured value x according to the measurement error e.</span></span></code></pre></div>
+</div>
+<div id="license-file" class="section level3">
+<h3><span class="header-section-number">6.2.5</span> License file</h3>
+<p>The license is mentioned in the readme file, but the project doesn’t contain any license file.
+You can add a license file by following the <a href="https://choosealicense.com/licenses/mit/#">instructions for the MIT license</a> (section “How to apply this license”) by &lt;choosealicense.com&gt;.
+Please use “Tamara Cook” as copyright holder, and of course don’t forget to commit the license file.</p>
+</div>
+<div id="tests" class="section level3">
+<h3><span class="header-section-number">6.2.6</span> Tests</h3>
+<p>Currently, function calls of <code>format_emp</code> with one input isn’t tested.
+You can activate it and get it running by making two small modifications in <em>tests.csv</em> and <em>format_emp.m</em>:</p>
+<ol style="list-style-type: decimal">
+<li>The <code>se_exp</code> variable is incorrect in the first test case.</li>
+<li>The function call with one input is missing in the for loop of the test block after line 28.
+The function has to be called only with <code>se</code>, and the result is expected to be <code>se_exp</code>.
+Please copy line 28 and modify accordingly.</li>
+</ol>
+
+</div>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="organization-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/edit/main/01-06-workflow-practice.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/commits/main/01-06-workflow-practice.Rmd",
+"text": null
+},
+"view": {
+"link": "https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/blob/main/01-06-workflow-practice.Rmd",
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"info": false
+});
+});
+</script>
+
+</body>
+
+</html>
