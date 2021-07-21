@@ -1,0 +1,76 @@
+# Practice: Workflow
+
+In this section, you will practice the git editing workflow by contributing to a small Matlab example project
+which contains a formatting function for empirical numbers.
+Don't worry, the project should be simple enough to get the exercises done, even if you're not used to Matlab.
+Please make sure you have successfully finished the first git setup.
+
+The example project is located in the _examples/empirical-round_ directory of our main git project.
+It's readme file provides a brief overview of the project, its files and their purposes.
+Now, it's your task to make some minor improvements to the project.
+You can fix issues that you found yourself, otherwise choose from the suggestions below.
+
+## General workflow
+
+Please try to follow these steps when you make an improvement:
+
+1. Choose an issue or area you want to work on.
+2. Create a branch from the main branch with a recognizable name, and checkout the new branch: `git checkout -b fix_tests main`.
+3. Make your file modifications. Try to find multiple modifications which can be grouped into one commit, e.g., spelling errors.
+4. Stage (select) the affected files: `git add path/to/file` or `git add .` to stage everything.
+5. Commit your changes: `git commit`.
+6. Push your branch to your fork: `git push origin fix_tests`
+
+## Suggested improvements
+
+These suggestions are intended to quickly provide you with some todos, but you can of course create your own issues.
+
+### Readme file
+
+_README.md_ can be improved at some places.
+You can use any text editor for editing.
+
+- In the first paragraph, the topic introduction is very short.
+  Maybe you can divide it into a topic and a project paragraph, and improve the topic introduction by providing a more detailed explanation or motivation.
+- The sentence in line 9 is missing the word “function” before or after `format_emp`.
+
+### Matlab compatibility
+
+The code should run with Matlab, but comments are introduced using the `#` character.
+This is allowed in Octave for shell compatibility, but not in Matlab.
+You can make the comments compatible to Matlab by replacing `#` with `%` characters.
+
+### Variable collision
+
+Both functions take an input parameter named `e`, but `e` is already a global constant.
+This can lead to weird behavior.
+You can fix this problem by renaming these inputs to something unique, e.g. `se`.
+Don't forget to rename every occurrence of `e`, not just the function signature.
+
+### Function documentation
+
+Functions meant to be called by users should have at least a short documentation comment.
+You can add a documentation comment to the `format_emp` function below the signature line which looks like this:
+
+```matlab
+% Format empirical numbers
+% printed = format_emp(x, e) rounds and formats the measured value x according to the measurement error e.
+```
+
+### License file
+
+The license is mentioned in the readme file, but the project doesn't contain any license file.
+You can add a license file by following the [instructions for the MIT license][mit-instructions] (section “How to apply this license”) by <choosealicense.com>.
+Please use “Tamara Cook” as copyright holder, and of course don't forget to commit the license file.
+
+### Tests
+
+Currently, function calls of `format_emp` with one input isn't tested.
+You can activate it and get it running by making two small modifications in _tests.csv_ and _format_emp.m_:
+
+1. The `se_exp` variable is incorrect in the first test case.
+2. The function call with one input is missing in the for loop of the test block after line 28.
+   The function has to be called only with `se`, and the result is expected to be `se_exp`.
+   Please copy line 28 and modify accordingly.
+
+[mit-instructions]: https://choosealicense.com/licenses/mit/#
