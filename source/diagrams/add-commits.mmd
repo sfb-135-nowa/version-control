@@ -1,0 +1,7 @@
+sequenceDiagram
+    User->Git: Create initial commit with no base commit
+    Git->User: Set HEAD to initial commit
+    loop Every new commit
+        User-->Git: Create commit based on HEAD commit
+        Git-->User: Set HEAD to new commit
+    end

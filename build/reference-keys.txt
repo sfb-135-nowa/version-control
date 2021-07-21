@@ -1,4 +1,0 @@
-organization
-agenda
-organization-1
-agenda-1

@@ -1,0 +1,16 @@
+sequenceDiagram
+    User->Git: Create initial commit with no base commit
+alt HEAD references branch
+    Git->User: Set branch to initial commit
+else
+    Git->User: Set HEAD to initial commit
+end
+    loop Every new commit
+alt HEAD references branch
+        User-->Git: Create commit based on branch commit
+        Git-->User: Set branch to new commit
+else
+        User-->Git: Create commit based on HEAD commit
+        Git-->User: Set HEAD to new commit
+end
+    end

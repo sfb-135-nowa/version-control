@@ -1,0 +1,231 @@
+# Inspecting version history
+
+This chapter describes the building blocks of a git project and how the version history of an existing git project can be inspected.
+This can even be useful if you decide not to use git in your projects.
+
+## Repository
+
+A repository (repo) is simply a hidden physical folder named _.git_ which contains a version history in the git-specific file structure and data formats.
+It can sit somewhere on your local machine or on a server.
+In general, git assumes that the folder which contains the repo
+is the root folder of your actual project where you work with your files and that you want to put under version control.
+So a project that is versioned with git mostly contains a _.git_ folder.
+
+When a project folder is put under version control and gets a _.git_ folder,
+this folder is managed by git and is called worktree or working copy.
+The content of the work tree is simply a copy of the most recent version.
+It is the place where authors work on their project and introduce their changes to git by creating new versions.
+In this chapter, we are only interested in the version history which can be completely inspected without touching the working copy.
+It is important to understand that the history is the essential core part,
+whereas the working copy is more like a writing channel to the repo.
+There is even a repo variant with no working copy for situations when a repo is not used for creating new versions.
+The working copy will be the central part of the workflow chapter.
+
+## Remote repos and distributed git
+
+Each repo can store URL references to one or more other repos (from servers, colleagues, etc.) and fetch their complete version history.
+These references are called _remotes_, and it's no problem to fetch multiple version histories.
+An URL exactly points to where a _.git_ directory is located.
+Git is decentralized or distributed, which means that it actually doesn't know the concept of a central main repo.
+You could even reference each other and fetch each other's work, but the more common workflow is to build a centralized structure by having a repo on a server where every collaborator can fetch from and where new versions can be pushed to.
+Git only talks to the remotes when you want to fetch or push new versions.
+The actual work is always done locally, so it remains quick, and if the server would crash, you still have the complete history and were able to copy it to the server again.
+
+### Cloning as a common shortcut
+
+If you discover an interesting repo on a server, you might want to view it locally.
+You could manually create a new local repo, add the remote, fetch its history, and restore its most recent version to the working copy.
+Because this is such a usual process, it became a combined git concept named _cloning_.
+
+The materials and sources for this course book are versioned in a Git repository themselves.
+First, you will have to clone it from Github, because this repo is used for the exercises.
+Please visit the [course repository] on Github.
+This is just the page URL and not necessarily the actual repo URL.
+Cloning is such a common first step that hosting platforms provide a download button which lets you copy the correct repo URL.
+On Github, this is hidden behind the Download icon above the files list.
+Please copy the HTTPS URL to the clipboard.
+
+In Git tower, go to File menu -> Clone git repository, paste the repo URL in the dialog,
+and find or create a folder which should be the project folder.
+After cloning is done, go to Repository view and open the newly cloned repository which should appear on top of the list.
+
+On the command line, open a terminal in the directory that should contain the project,
+and run `git clone <REPO_URL> <PROJECT_FOLDER>`.
+If you omit the second parameter, the name will be the repo name from Github.
+
+### Authentication with protected repos
+
+If a repo can be publicly viewed, you wont have any problems to clone it.
+But if the access is restricted or you want to push to the repo, you will have to create an account for the respective platform and setup authentication.
+Git supports two network protocols for remote operations, and both have their own authentication strategies:
+
+HTTPS
+: The “normal” web protocol with a _personal access token_ for authentication, a kind of restricted password
+
+SSH
+: The “more traditional” file transfer protocol with a key pair for authentication
+: On Mac and Linux, SSH is relatively straight forward, but you can use [PuTTY] to manage your SSH keys on Windows.
+: I recommend you to create keys without an additional password (passphrase), because keys themselves are secure enough, and entering the passphrase becomes very distracting in the workflow.
+
+Public services like <github.com> and <gitlab.com> offer both methods, and you'll find detailed setup guides in their help resources.
+After setting up authentication, manually entering passwords is rarely needed.
+Sometimes, only one of them is available on a server.
+The self-hosted NOWA gitlab only supports HTTPS, but no SSH.
+
+## Commit history
+
+A repository mainly contains a version history.
+In git terminology, A version is called a commit, so the history is often called commit history.
+Creating a new commit means introducing a set of project file changes to the history, each commit represents a full project state.
+The history is no collection of isolated snapshots, but a referential and differential structure.
+This also means that commits are rarely deleted.
+Rewriting and cleaning history is possible, but please consider commits as something that has happened in the past.
+We can of course revert our mistakes from the past, but that doesn't rewrite the past.
+
+Git has the sophisticated concept of a currently active commit in a repo, this “state variable” is called HEAD in Git terminology.
+The next new commit is always based on the active commit which HEAD is pointing to.
+After creating a new commit, HEAD is set to that new commit.
+So we have an advancing HEAD state.
+
+`r DiagrammeR::DiagrammeR("../diagrams/add-commits.mmd")`
+
+In the simplest case, this mechanism builds a sequence of commits.
+The HEAD variable could even be omitted and the most recent commit could always be used as the base commit for the next new commit.
+But the user can deliberately set HEAD to any commit in the history, and this commit will act as the base for the next new commit.
+As a consequence, multiple commits can be based on the same commit because the user can return to that commit and create new commits repeatedly.
+This results in a diverging tree graph structure.
+In a tree graph, the root is reachable from every node.
+This can lead to the impression of linearity when you follow a path from leaf to root, but in fact, the graph can have diverged.
+As long as you don't deliberately change the active commit state, you build simple commit sequences without divergence.
+
+Finally, there is a special kind of commit which can be based on two commits.
+As a consequence, diverged paths can merge again.
+The following example diagram illustrates how a result of this process can look like.
+
+`r DiagrammeR::DiagrammeR("../diagrams/commit-tree.mmd")`
+
+If you open the cloned repo in Git Tower, you can inspect its commit history as a graph in the History view.
+The commits are shown in reverse-chronological order.
+Each commit shows its ID, date, author, and a descriptive message.
+Selecting a commit reveals the file changes associated with this commit.
+You can switch from list view to tree view which displays the full project state instead of the changes.
+
+On the command line, use the `git log <id>` command to list commits, and `git show <id>` to view exactly one commit.
+These commands can be seen as query tools for selecting and subsetting commits and the displayed information of each commit.
+The Git Pro book provides a [short summary][git history] of using `git log` and its options.
+If no ID is given, the active commit is used by both commands.
+Try e.g. `git log --stat` or `git log --oneline` to customize your log output, or `git log <file/path>` to subset the commits affecting a given file or folder.
+
+- The unique ID is created by Git and used in Git operations where a determined commit has to be referenced,
+  e.g., if you want to select or inspect a commit.
+- Date and author are set automatically, but both can be customized.
+  We will customize the author in the workflow chapter.
+- The messages are provided by the user for each commit, they make the history meaningful and expressive.
+  When you create a commit, you have to think of a message which describes the introduced set of file changes in a more semantic way.
+  The flow diagram above is composed of this kind of messages.
+
+## Navigating the tree: Tags and branches
+
+When the history grows and diverges, the user can quickly get lost in the tree graph.
+Switching between parallel paths requires the user to find the leaf of the target path.
+Setting HEAD back to an older commit in order to diverge requires the user to find the correct commit again and again.
+In a graphical tool, this would be possible by visual inspection, but cumbersome.
+On the command line, working productively would be nearly impossible, because you would always have to query and enter the alphanumeric commit IDs.
+Git was originally developed for the command line, so a second important layer has been built into Git for navigational purposes: tags and branches.
+These behave like bookmarks that are created by the user to label important commits in the graph with a meaningful name.
+Both can be passed to the Git commands in place of the commit IDs to view the history, set HEAD to a desired commit, and similar operations.
+In fact, they are landmarks for the graph.
+Users normally work with this layer, and rarely have to directly work with the raw IDs.
+It is much more common to modify and delete these landmarks than it is for commits, like you can change your opinion about the importance of historical events.
+
+### Branches
+
+Branches are made to label the leaf commit of tree paths.
+We have already seen the advancing nature of HEAD.
+HEAD stores the ID of a commit and is advanced by creating a new commit.
+This advancing behavior is the outstanding feature of branches.
+Additionally, branches have a name which is defined by the user, and branches can also reference the name of another branch instead of a commit ID.
+
+Technically, HEAD is a special branch named HEAD, a concrete example of the branch concept.
+HEAD usually doesn't directly reference a commit, but a branch which references a commit.
+Users can deliberately set HEAD to a branch, marking this branch as active branch.
+Switching between branches is extremely fast, because it doesn't need to copy any data files, it's just setting a reference.
+If HEAD references a branch, advancing is forwarded to that branch instead of advancing HEAD itself.
+Creating a new commit advances the active branch to the new commit and leaves HEAD set to the branch.
+
+`r DiagrammeR::DiagrammeR("../diagrams/add-commits-branch.mmd")`
+
+Git Tower displays the branches of a repo in the Branches section of the sidebar.
+You can linearly follow a branch to the root, and get the impression of separate contexts.
+An important detail to note is that the History view contains no commits that are not reachable by a branch or tag.
+
+On the command line, use the `git branch` command to list the branches in the repo.
+Then run `git log <branch>` or `git show <branch>` to inspect the history via branches.
+
+Please don't be confused by some branches appearing also in the Remotes section of Tower's sidebar.
+Due to its distributed architecture, Git distinguishes branches into local and remote branches.
+The local branches are the working branches as described above, remote branches reflect the current branch state of the respective remote repository.
+Git doesn't push all local branches automatically, but a local branch is deliberately pushed by the user.
+Pushing a local branch pushes all reachable commits from this branch and updates the remote branch.
+A common workflow is creating many local branches that will never be shared.
+This enables users to distinguish between their personal working branches and those in a central collaboration repo.
+
+### Tags
+
+Tags are labels for important commits in the graph.
+They exist in two implementation flavors:
+
+Lightweight tags
+: Like branches, these have a name and store the ID of a commit, and they can be easily created and deleted.
+They are useful as temporary labels to simplify the workflow, and they are deliberately uploaded by the user.
+
+Annotated tags
+: These are exactly like commits without change data.
+They become part of the commit graph, have a predecessor commit, and have metadata and messages,
+so they should be used to create more final landmarks in the graph that will never change.
+Releases are a typical example for annotated tags.
+
+In Git Tower, tags are shown in the sidebar below the branches.
+On the command line, run `git tag` to list the local tags in the repo.
+
+## Comparing commits
+
+How can the changes introduced by a commit be inspected?
+You have certainly worked with the track changes feature of MS word.
+Word doesn't have to be tool agnostic and simply tracks your actions.
+In Git, the commits with descriptive messages fulfill the role of meaningful semantic actions.
+That's why commit messages are often written in an imperative style (Rewrite chapter 3).
+Being tool agnostic, Git doesn't track what the commit authors did in their productivity tools.
+In order to report which changes were introduced by a commit, Git compares the two project states
+of the commit and its predecessor, and represents the difference in a standardized output format as changes which affect files and file content.
+The format is just a representation or interchange format to communicate changes, not the internal storage format used by Git.
+
+File changes
+: Files in the project can be added, modified, or deleted.
+
+Text file content changes
+: Git uses a textual representation of text changes by default, the [unified diff][diff] format
+Lines within text files can be added or deleted in this diff format.
+Diff prepends added and removed lines with plus and minus signs.
+Modified lines are composed of a deletion and an addition.
+
+Binary file content changes
+: For binary files like PDF, images, or Office files, Git unfortunately doesn't have a representation of file content changes.
+
+Graphical (diff) tools for comparing file content side by side can integrate with Git,
+but this course concentrates on the traditional textual diff.
+IDE programs like VS Code or IntelliJ also contain their own graphical diff tool.
+You'll find many online resources about diff tools and Git.
+
+In Git Tower, file changes are displayed next to the selected commit in the history.
+Files can be expanded to show their diff.
+On the command line, `git show <id>` outputs the diff of a given commit.
+
+One more implication of this architecture is that Git can compare a commit to any other commit, not only to its predecessor.
+Comparing a commit to its predecessor can be seen as the most frequent special case of this more general approach.
+It uses the same comparing mechanisms as above and reports the difference in terms of changes or diff representations.
+
+[course repository]: https://github.com/sfb-135-nowa/version-control
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/
+[diff]: https://en.wikipedia.org/wiki/Diff#Unified_format
+[git history]: https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
