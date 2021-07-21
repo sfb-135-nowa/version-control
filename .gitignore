@@ -428,3 +428,4 @@ TSWLatexianTemp*
 .DS_Store
 Thumbs.db
 *.knit.md
+/build/
