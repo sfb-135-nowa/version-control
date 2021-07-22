@@ -24,7 +24,7 @@ jobs:
       - name: Cache Renv packages
         uses: actions/cache@v2
         with:
-          path: $HOME/.local/share/renv
+          path: ~/Library/Caches/org.R-project.R/R/renv
           key: r-${{ hashFiles('renv.lock') }}
           restore-keys: r-
 
@@ -37,8 +37,8 @@ jobs:
 
       - name: Install packages
         run: |
-          R -e 'install.packages("renv")'
-          R -e 'renv::restore()'
+          Rscript -e 'install.packages("renv")'
+          Rscript -e 'renv::restore()'
 
       - name: Build site
         run: Rscript -e 'bookdown::render_book("source/handout", output_format = "bookdown::gitbook")'
