@@ -32,6 +32,7 @@
   
 
 <link rel="next" href="organization.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,7 +50,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
@@ -63,18 +63,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -94,7 +94,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -127,6 +127,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 </head>
 
@@ -142,10 +164,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
 <li class="part"><span><b>I Concepts and basic workflows</b></span></li>
-<li class="chapter" data-level="1" data-path="organization.html"><a href="organization.html"><i class="fa fa-check"></i><b>1</b> Organization</a><ul>
+<li class="chapter" data-level="1" data-path="organization.html"><a href="organization.html"><i class="fa fa-check"></i><b>1</b> Organization</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="organization.html"><a href="organization.html#agenda"><i class="fa fa-check"></i><b>1.1</b> Agenda</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>2</b> Motivation</a><ul>
+<li class="chapter" data-level="2" data-path="motivation.html"><a href="motivation.html"><i class="fa fa-check"></i><b>2</b> Motivation</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="motivation.html"><a href="motivation.html#meaningful-versions"><i class="fa fa-check"></i><b>2.1</b> Meaningful versions</a></li>
 <li class="chapter" data-level="2.2" data-path="motivation.html"><a href="motivation.html#version-history-and-comparing-versions"><i class="fa fa-check"></i><b>2.2</b> Version history and comparing versions</a></li>
 <li class="chapter" data-level="2.3" data-path="motivation.html"><a href="motivation.html#parallel-work"><i class="fa fa-check"></i><b>2.3</b> Parallel work</a></li>
@@ -154,40 +178,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6" data-path="motivation.html"><a href="motivation.html#flexibility-and-separation-of-concerns"><i class="fa fa-check"></i><b>2.6</b> Flexibility and separation of concerns</a></li>
 <li class="chapter" data-level="2.7" data-path="motivation.html"><a href="motivation.html#general-and-special-tools"><i class="fa fa-check"></i><b>2.7</b> General and special tools</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html"><i class="fa fa-check"></i><b>3</b> Inspecting version history</a><ul>
+<li class="chapter" data-level="3" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html"><i class="fa fa-check"></i><b>3</b> Inspecting version history</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#repository"><i class="fa fa-check"></i><b>3.1</b> Repository</a></li>
-<li class="chapter" data-level="3.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#remote-repos-and-distributed-git"><i class="fa fa-check"></i><b>3.2</b> Remote repos and distributed git</a><ul>
+<li class="chapter" data-level="3.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#remote-repos-and-distributed-git"><i class="fa fa-check"></i><b>3.2</b> Remote repos and distributed git</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#cloning-as-a-common-shortcut"><i class="fa fa-check"></i><b>3.2.1</b> Cloning as a common shortcut</a></li>
 <li class="chapter" data-level="3.2.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#authentication-with-protected-repos"><i class="fa fa-check"></i><b>3.2.2</b> Authentication with protected repos</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#commit-history"><i class="fa fa-check"></i><b>3.3</b> Commit history</a></li>
-<li class="chapter" data-level="3.4" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#navigating-the-tree-tags-and-branches"><i class="fa fa-check"></i><b>3.4</b> Navigating the tree: Tags and branches</a><ul>
+<li class="chapter" data-level="3.4" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#navigating-the-tree-tags-and-branches"><i class="fa fa-check"></i><b>3.4</b> Navigating the tree: Tags and branches</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#branches"><i class="fa fa-check"></i><b>3.4.1</b> Branches</a></li>
 <li class="chapter" data-level="3.4.2" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#tags"><i class="fa fa-check"></i><b>3.4.2</b> Tags</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="inspecting-version-history.html"><a href="inspecting-version-history.html#comparing-commits"><i class="fa fa-check"></i><b>3.5</b> Comparing commits</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="practice-history.html"><a href="practice-history.html"><i class="fa fa-check"></i><b>4</b> Practice: History</a><ul>
+<li class="chapter" data-level="4" data-path="practice-history.html"><a href="practice-history.html"><i class="fa fa-check"></i><b>4</b> Practice: History</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="practice-history.html"><a href="practice-history.html#exploring-commits-and-their-file-changes"><i class="fa fa-check"></i><b>4.1</b> Exploring commits and their file changes</a></li>
 <li class="chapter" data-level="4.2" data-path="practice-history.html"><a href="practice-history.html#exploring-commits-and-their-associated-project-state"><i class="fa fa-check"></i><b>4.2</b> Exploring commits and their associated project state</a></li>
 <li class="chapter" data-level="4.3" data-path="practice-history.html"><a href="practice-history.html#interpreting-file-content-changes"><i class="fa fa-check"></i><b>4.3</b> Interpreting file content changes</a></li>
 <li class="chapter" data-level="4.4" data-path="practice-history.html"><a href="practice-history.html#congrats"><i class="fa fa-check"></i><b>4.4</b> Congrats</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>5</b> Workflow</a><ul>
-<li class="chapter" data-level="5.1" data-path="workflow.html"><a href="workflow.html#setup"><i class="fa fa-check"></i><b>5.1</b> Setup</a><ul>
+<li class="chapter" data-level="5" data-path="workflow.html"><a href="workflow.html"><i class="fa fa-check"></i><b>5</b> Workflow</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="workflow.html"><a href="workflow.html#setup"><i class="fa fa-check"></i><b>5.1</b> Setup</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="workflow.html"><a href="workflow.html#commit-identity"><i class="fa fa-check"></i><b>5.1.1</b> Commit identity</a></li>
 <li class="chapter" data-level="5.1.2" data-path="workflow.html"><a href="workflow.html#editor"><i class="fa fa-check"></i><b>5.1.2</b> Editor</a></li>
 <li class="chapter" data-level="5.1.3" data-path="workflow.html"><a href="workflow.html#default-branch"><i class="fa fa-check"></i><b>5.1.3</b> Default branch</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="workflow.html"><a href="workflow.html#creating-a-git-repository"><i class="fa fa-check"></i><b>5.2</b> Creating a git repository</a><ul>
+<li class="chapter" data-level="5.2" data-path="workflow.html"><a href="workflow.html#creating-a-git-repository"><i class="fa fa-check"></i><b>5.2</b> Creating a git repository</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="workflow.html"><a href="workflow.html#git-tower"><i class="fa fa-check"></i><b>5.2.1</b> Git Tower</a></li>
 <li class="chapter" data-level="5.2.2" data-path="workflow.html"><a href="workflow.html#command-line"><i class="fa fa-check"></i><b>5.2.2</b> Command line</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="workflow.html"><a href="workflow.html#creating-new-commits"><i class="fa fa-check"></i><b>5.3</b> Creating new commits</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="practice-workflow.html"><a href="practice-workflow.html"><i class="fa fa-check"></i><b>6</b> Practice: Workflow</a><ul>
+<li class="chapter" data-level="6" data-path="practice-workflow.html"><a href="practice-workflow.html"><i class="fa fa-check"></i><b>6</b> Practice: Workflow</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="practice-workflow.html"><a href="practice-workflow.html#general-workflow"><i class="fa fa-check"></i><b>6.1</b> General workflow</a></li>
-<li class="chapter" data-level="6.2" data-path="practice-workflow.html"><a href="practice-workflow.html#suggested-improvements"><i class="fa fa-check"></i><b>6.2</b> Suggested improvements</a><ul>
+<li class="chapter" data-level="6.2" data-path="practice-workflow.html"><a href="practice-workflow.html#suggested-improvements"><i class="fa fa-check"></i><b>6.2</b> Suggested improvements</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="practice-workflow.html"><a href="practice-workflow.html#readme-file"><i class="fa fa-check"></i><b>6.2.1</b> Readme file</a></li>
 <li class="chapter" data-level="6.2.2" data-path="practice-workflow.html"><a href="practice-workflow.html#matlab-compatibility"><i class="fa fa-check"></i><b>6.2.2</b> Matlab compatibility</a></li>
 <li class="chapter" data-level="6.2.3" data-path="practice-workflow.html"><a href="practice-workflow.html#variable-collision"><i class="fa fa-check"></i><b>6.2.3</b> Variable collision</a></li>
@@ -197,7 +230,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II Project customization and collaboration</b></span></li>
-<li class="chapter" data-level="7" data-path="organization-1.html"><a href="organization-1.html"><i class="fa fa-check"></i><b>7</b> Organization</a><ul>
+<li class="chapter" data-level="7" data-path="organization-1.html"><a href="organization-1.html"><i class="fa fa-check"></i><b>7</b> Organization</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="organization-1.html"><a href="organization-1.html#agenda-1"><i class="fa fa-check"></i><b>7.1</b> Agenda</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
