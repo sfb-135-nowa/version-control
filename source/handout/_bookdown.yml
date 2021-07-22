@@ -1,5 +1,5 @@
 output_dir: ../../build
 book_filename: handout.Rmd
-view: https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/blob/main/%s
-history: https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/commits/main/%s
-edit: https://vhrz1125.hrz.uni-marburg.de/nowa/training/version-control/materials/edit/main/%s
+view: https://github.com/sfb-135-nowa/version-control/blob/main/%s
+history: https://github.com/sfb-135-nowa/version-control/commits/main/%s
+edit: https://github.com/sfb-135-nowa/version-control/edit/main/%s
