@@ -1,3 +1,4 @@
+source("renv/activate.R")
 ## ---- tinytex settings
 options(tinytex.engine = "lualatex")
 options(tinytex.bib_engine = "biber")
