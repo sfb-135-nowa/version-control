@@ -23,14 +23,14 @@ nocite: |
 You are visiting the written version of a course about integrating version control using Git into research projects.
 This course was initially created for the members of the [CRC 135][sfb135] and their scientific staff within the CRC's [NOWA] project.
 
-## Overview
+## Overview {-}
 
 The course is divided into two parts:
 
 1. Concepts of version control and basic workflows
 2. Project customization and collaboration
 
-### Concepts of version control and basic workflows
+### Concepts of version control and basic workflows {-}
 
 In this session, the participants familiarize themselves with version control as a working method and get the opportunity to practice the basic Git workflows.
 They will be able to:
@@ -39,7 +39,7 @@ They will be able to:
 - Edit data in a repo and add new versions,, make use of Git's features for parallel working contexts
 - Decide if Git is suitable for their needs
 
-### Project customization and Gitlab
+### Project customization and Gitlab {-}
 
 In this session, the scope extends to collaboration on Gitlab projects. These topics are covered:
 
