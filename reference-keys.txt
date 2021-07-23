@@ -1,3 +1,6 @@
+overview
+concepts-of-version-control-and-basic-workflows
+project-customization-and-gitlab
 organization
 agenda
 motivation
