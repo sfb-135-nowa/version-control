@@ -20,9 +20,33 @@ nocite: |
 
 # Welcome {-}
 
-This book serves as the handout and written version of a course about integrating version control with git into the research workflow
-that was created for the members of the CRC 135 and their co-workers as part of the NOWA project.
-The course is divided into two sessions:
+You are visiting the written version of a course about integrating version control using Git into research projects.
+This course was initially created for the members of the [CRC 135][sfb135] and their scientific staff within the CRC's [NOWA] project.
+
+## Overview
+
+The course is divided into two parts:
 
 1. Concepts of version control and basic workflows
 2. Project customization and collaboration
+
+### Concepts of version control and basic workflows
+
+In this session, the participants familiarize themselves with version control as a working method and get the opportunity to practice the basic Git workflows.
+They will be able to:
+
+- Explore existing Git repositories, browse the version history, compare versions, extract data from older versions
+- Edit data in a repo and add new versions,, make use of Git's features for parallel working contexts
+- Decide if Git is suitable for their needs
+
+### Project customization and Gitlab
+
+In this session, the scope extends to collaboration on Gitlab projects. These topics are covered:
+
+- Connecting Git repos with Gitlab and uploading work for backup
+- Customizing Git repos for the project content
+- Sharing Gitlab projects with co-workers for review
+- Collaborating with co-workers on a shared Gitlab project
+
+[sfb135]: https://www.allpsych.uni-giessen.de/sfb/
+[nowa]: https://www.allpsych.uni-giessen.de/sfb/projekte/inf.html

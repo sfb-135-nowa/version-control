@@ -1,34 +1,24 @@
-# Training Materials
+# NOWA Version Control Training
 
-This repo contains the teaching materials for a training on integrating version control with Git into the research workflow.
-The training was conducted for the members of the CRC 135 and their co-workers as part of the NOWA project.
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-## Contents
+This repo contains the source files for the written version of a course on integrating version control with Git into the research workflow.
+The course was conducted for the members of the CRC 135 and their co-workers as part of the NOWA project.
+The written version mainly consists of a living online manuscript which fulfills the role of a traditional handout, and a presentation.
 
-The training is divided into two sessions:
+- [Read the manuscript][manuscript]
+- [View the slides][presentation]
 
-### Concepts of version control and basic workflows
+## Project structure
 
-In this session, the participants familiarize themselves with version control as a working method and get the opportunity to practice the basic Git workflows.
-They will be able to:
+- The manuscript and the presentation are written in R Markdown.
+  They are built from the files in the _source_ folder using Github actions for continuous deployment from the main branch.
+- The _examples_ folder contains some miniature projects used in the course exercises.
 
-- Explore existing Git repositories, browse the version history, compare versions, extract data from older versions
-- Edit data in a repo and add new versions,, make use of Git's features for parallel working contexts
-- Decide if Git is suitable for their needs
+## License
 
-### Project customization and Gitlab
+The content is licensed under the [CC BY-SA 4.0 license].
 
-In this session, the scope extends to collaboration on Gitlab projects. These topics are covered:
-
-- Connecting Git repos with Gitlab and uploading work for backup
-- Customizing Git repos for the project content
-- Sharing Gitlab projects with co-workers for review
-- Collaborating with co-workers on a shared Gitlab project
-
-## Materials
-
-- The Reveal.js presentation and the PDF handout in the _build_ directory cover the topics of both sessions.
-- Handout and presentations are built with R Markdown from the files in the _source_ directory.
-- The _examples_ directory contains several miniature projects of different content types.
-  They are used for the exercises.
-- _notes.md_ contains content that isn't yet integrated into the slides and handout.
+[manuscript]: https://sfb-135-nowa.github.io/version-control/
+[presentation]: https://sfb-135-nowa.github.io/version-control/presentation.html
+[cc by-sa 4.0 license]: https://creativecommons.org/licenses/by-sa/4.0/
