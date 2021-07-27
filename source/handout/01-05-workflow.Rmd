@@ -13,8 +13,8 @@ Commit identity
 Editor
 : The text editor that should be opened when Git asks you for text input, e.g., commit messages.
 
-Default branch
-: The default name of a repo's primary branch
+Default initial branch
+: The default name of a branch initially created after a new repo has been created.
 
 Git has a subcommand named `git config` which is used to customize Git's behavior on your local machine via settings.
 There are many settings, and a setting can be configured for a single repo,
@@ -60,18 +60,19 @@ In Git Tower, this setting will rarely be used.
 If you'd never use the command line, you could skip this step, but it is recommended as a precaution.
 Please configure one of the editors listed [in this appendix of Git Pro][editor-config] (table 4).
 
-### Default branch
+### Default initial branch
 
-When a new repository is created, Git creates a primary branch as a starting point to work with immediately.
+When a new repository is created, Git also creates an initial branch as a starting point to work with immediately.
 This branch often represents the current stable version of the project and is set as HEAD on hosting platforms like Gitlab or Github.
-Historically, the default name of this primary branch has been “master”, but Git has added a config setting to customize this name.
-A cultural change has occurred in the tech community which considers the master/slave terminology in today's technical applications as inappropriate, antiquated, and offensive,
-and thus strives to replace these terms with more neutral ones in technical speech.
-Git and platforms like Gitlab and Github support this movement and have chosen “main” as the new default branch name.
-The migration process is inevitable but still in progress, that's why explicitly configuring the default branch is part of the first git setup for the time being.
+This affects the active branch after cloning a repo, and how a repo is displayed on the web page.
+Historically, it's default name has been “master”, but a cultural change has occurred in the tech community
+which strives to replace the master/slave terms in technical speech with more neutral and politically inclusive ones.
+Git and platforms like Gitlab and Github support this movement and have chosen “main” as the new default name for initial branches.
+The migration process is inevitable but still in progress,
+that's why explicitly configuring the default name via user config setting is part of the first git setup for the time being:
 
 ```bash
-# Create new repos with a primary branch called main
+# Create new repos with a initial branch called main
 git config --global init.defaultBranch main
 ```
 
