@@ -81,7 +81,7 @@ git config --global init.defaultBranch main
 A repository is just a hidden _.git_ directory in the working copy root,
 and Git can add a pristine repository to any physical directory, be it empty or an existing project.
 This pristine state of the new repository can be viewed as the root of the history graph, a virtual zero commit.
-Afterwards, Git automatically creates and activates a primary branch one can immediately work with.
+Afterwards, Git automatically creates and activates an initial branch one can immediately work with.
 
 ### Git Tower
 
@@ -94,6 +94,18 @@ Afterwards, Git automatically creates and activates a primary branch one can imm
 1. Create a new directory or choose an existing one that you want to turn into a Git repository.
 2. Open a terminal in this directory.
 3. Create a new git repository by running `git init`.
+
+### Hosting platform
+
+If you want to connect your repo with a hosting platform, you have to create a new repository on the respective platform.
+Please look for “Create new repository” or similar functions.
+You'll be asked for some metadata and to set the repo name and group which determines the repo URL.
+You have two alternative strategies for the actual git repo:
+
+1. Let the platform initialize the repo and clone it afterwards.
+   This is appropriate for creating completely new projects.
+2. Skip initializing, add the new URL as remote to an existing local repo, and push the initial branch.
+   If you want to populate an existing local repo, or need more control over the initialization process, this is the right choice.
 
 ## Creating new commits
 
