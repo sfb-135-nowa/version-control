@@ -224,6 +224,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.3.3" data-path="workflow.html"><a href="workflow.html#creating-a-new-commit"><i class="fa fa-check"></i><b>5.3.3</b> Creating a new commit</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="workflow.html"><a href="workflow.html#populating-the-working-copy"><i class="fa fa-check"></i><b>5.4</b> Populating the working copy</a></li>
+<li class="chapter" data-level="5.5" data-path="workflow.html"><a href="workflow.html#creating-branches-and-tags"><i class="fa fa-check"></i><b>5.5</b> Creating branches and tags</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="practice-workflow.html"><a href="practice-workflow.html"><i class="fa fa-check"></i><b>6</b> Practice: Workflow</a>
 <ul>
@@ -392,8 +393,8 @@ This differential approach is an important building block which makes Git tool a
 It can be helpful to imagine this as an additional virtual location where the unversioned changes are collected in a change set.
 The change set depends on the working copy, and it is a good habit to observe the change set during work.
 If you select and commit some changes, these changes disappear from the change set and flow into the history where they become versioned.</p>
-<div id="htmlwidget-c9641610aa7606b0f5c3" style="width:960px;height:500px;" class="mermaid html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c9641610aa7606b0f5c3">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4b10979d20d51c11ffa0" style="width:960px;height:500px;" class="mermaid html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4b10979d20d51c11ffa0">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
 <p>In Git Tower, the Working copy view is made for preparing and creating commits.
 The Tower help provides overview sections about <a href="https://www.git-tower.com/help/guides/working-copy/inspect-changes">inspecting changes</a> and <a href="https://www.git-tower.com/help/guides/working-copy/stage-changes">selecting changes</a>.</p>
 <p>You can select either complete files via checkbox, or partial files where a change occurred.
@@ -448,7 +449,27 @@ This should only be done if the working copy is clean.</li>
 <span id="cb4-8"><a href="workflow.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
 <span id="cb4-9"><a href="workflow.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Checkout the abc commit</span></span>
 <span id="cb4-10"><a href="workflow.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout abc</span></code></pre></div>
-<p>After a successful checkout, you are able to create commit trees.</p>
+<p>If you commit after a successful checkout, a diverging tree will be the result.</p>
+</div>
+<div id="creating-branches-and-tags" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Creating branches and tags</h2>
+<p>In your own repos, you will need to create your own branches and tags.
+Git provides a couple of commands to cover various scenarios.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="workflow.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a branch named testing which points to the HEAD commit</span></span>
+<span id="cb5-2"><a href="workflow.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch testing</span>
+<span id="cb5-3"><a href="workflow.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an annotated tag named v0.1.0 pointing to HEAD</span></span>
+<span id="cb5-4"><a href="workflow.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This is part of the git tree</span></span>
+<span id="cb5-5"><a href="workflow.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> tag <span class="at">-a</span> v0.1.0</span>
+<span id="cb5-6"><a href="workflow.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tag named latest which points to the HEAD commit</span></span>
+<span id="cb5-7"><a href="workflow.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This marks v0.1.0 as latest release</span></span>
+<span id="cb5-8"><a href="workflow.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> tag latest</span>
+<span id="cb5-9"><a href="workflow.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a branch named feature which points to latest tag</span></span>
+<span id="cb5-10"><a href="workflow.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch feature latest</span>
+<span id="cb5-11"><a href="workflow.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine creating a branch with checkout</span></span>
+<span id="cb5-12"><a href="workflow.html#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and checkout a branch named develop pointing to HEAD</span></span>
+<span id="cb5-13"><a href="workflow.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> develop</span>
+<span id="cb5-14"><a href="workflow.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and checkout a branch named fix pointing to main</span></span>
+<span id="cb5-15"><a href="workflow.html#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> fix main</span></code></pre></div>
 
 </div>
 </div>
