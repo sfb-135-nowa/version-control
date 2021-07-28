@@ -225,6 +225,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="workflow.html"><a href="workflow.html#populating-the-working-copy"><i class="fa fa-check"></i><b>5.4</b> Populating the working copy</a></li>
 <li class="chapter" data-level="5.5" data-path="workflow.html"><a href="workflow.html#creating-branches-and-tags"><i class="fa fa-check"></i><b>5.5</b> Creating branches and tags</a></li>
+<li class="chapter" data-level="5.6" data-path="workflow.html"><a href="workflow.html#pushing-new-commits"><i class="fa fa-check"></i><b>5.6</b> Pushing new commits</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="practice-workflow.html"><a href="practice-workflow.html"><i class="fa fa-check"></i><b>6</b> Practice: Workflow</a>
 <ul>
@@ -393,8 +394,8 @@ This differential approach is an important building block which makes Git tool a
 It can be helpful to imagine this as an additional virtual location where the unversioned changes are collected in a change set.
 The change set depends on the working copy, and it is a good habit to observe the change set during work.
 If you select and commit some changes, these changes disappear from the change set and flow into the history where they become versioned.</p>
-<div id="htmlwidget-4b10979d20d51c11ffa0" style="width:960px;height:500px;" class="mermaid html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4b10979d20d51c11ffa0">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9b1153663dc7f4104c57" style="width:960px;height:500px;" class="mermaid html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9b1153663dc7f4104c57">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
 <p>In Git Tower, the Working copy view is made for preparing and creating commits.
 The Tower help provides overview sections about <a href="https://www.git-tower.com/help/guides/working-copy/inspect-changes">inspecting changes</a> and <a href="https://www.git-tower.com/help/guides/working-copy/stage-changes">selecting changes</a>.</p>
 <p>You can select either complete files via checkbox, or partial files where a change occurred.
@@ -470,6 +471,20 @@ Git provides a couple of commands to cover various scenarios.</p>
 <span id="cb5-13"><a href="workflow.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> develop</span>
 <span id="cb5-14"><a href="workflow.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and checkout a branch named fix pointing to main</span></span>
 <span id="cb5-15"><a href="workflow.html#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> fix main</span></code></pre></div>
+</div>
+<div id="pushing-new-commits" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Pushing new commits</h2>
+<p>If your local repository has a remote with sufficient access rights, you can push your work to that remote repository.
+Branches also play an important role for pushing, because you have to select one branch and decide to push it to a remote.
+There’s no “push it all” concept.
+Only commits which are reachable from the branch are pushed.
+If the pushed branch doesn’t exist on the remote, it is created.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="workflow.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Push the main branch to the origin remote</span></span>
+<span id="cb6-2"><a href="workflow.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span>
+<span id="cb6-3"><a href="workflow.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Push main to origin, and remember origin as the default remote for the main branch</span></span>
+<span id="cb6-4"><a href="workflow.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span>
+<span id="cb6-5"><a href="workflow.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Push the current branch to its default remote</span></span>
+<span id="cb6-6"><a href="workflow.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
 
 </div>
 </div>

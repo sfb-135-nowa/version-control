@@ -38,6 +38,7 @@ viewing-and-selecting-changes-in-the-working-copy
 creating-a-new-commit
 populating-the-working-copy
 creating-branches-and-tags
+pushing-new-commits
 practice-workflow
 general-workflow
 suggested-improvements
