@@ -221,6 +221,23 @@ git checkout -b develop
 git checkout -b fix main
 ```
 
+## Pushing new commits
+
+If your local repository has a remote with sufficient access rights, you can push your work to that remote repository.
+Branches also play an important role for pushing, because you have to select one branch and decide to push it to a remote.
+There's no “push it all” concept.
+Only commits which are reachable from the branch are pushed.
+If the pushed branch doesn't exist on the remote, it is created.
+
+```bash
+# Push the main branch to the origin remote
+git push origin main
+# Push main to origin, and remember origin as the default remote for the main branch
+git push -u origin main
+# Push the current branch to its default remote
+git push
+```
+
 [editor-config]: https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
 [github-commit-email]: https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
 [inspecting changes]: https://www.git-tower.com/help/guides/working-copy/inspect-changes
