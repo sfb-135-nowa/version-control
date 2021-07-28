@@ -27,10 +27,12 @@ workflow
 setup
 commit-identity
 editor
-default-branch
+default-initial-branch
 creating-a-git-repository
 git-tower
 command-line
+hosting-platform
+the-working-copy
 creating-new-commits
 practice-workflow
 general-workflow

@@ -53,13 +53,8 @@
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<script src="libs/d3-3.3.8/d3.min.js"></script>
-<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
-<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
-<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
-<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-<script src="libs/chromatography-0.1/chromatography.js"></script>
-<script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
+<script src="libs/mermaid-8.11.0/mermaid.min.js"></script>
+<script src="libs/mermaid-binding-0.0.0.9000/mermaid.js"></script>
 
 
 <style type="text/css">
@@ -214,14 +209,16 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="workflow.html"><a href="workflow.html#commit-identity"><i class="fa fa-check"></i><b>5.1.1</b> Commit identity</a></li>
 <li class="chapter" data-level="5.1.2" data-path="workflow.html"><a href="workflow.html#editor"><i class="fa fa-check"></i><b>5.1.2</b> Editor</a></li>
-<li class="chapter" data-level="5.1.3" data-path="workflow.html"><a href="workflow.html#default-branch"><i class="fa fa-check"></i><b>5.1.3</b> Default branch</a></li>
+<li class="chapter" data-level="5.1.3" data-path="workflow.html"><a href="workflow.html#default-initial-branch"><i class="fa fa-check"></i><b>5.1.3</b> Default initial branch</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="workflow.html"><a href="workflow.html#creating-a-git-repository"><i class="fa fa-check"></i><b>5.2</b> Creating a git repository</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="workflow.html"><a href="workflow.html#git-tower"><i class="fa fa-check"></i><b>5.2.1</b> Git Tower</a></li>
 <li class="chapter" data-level="5.2.2" data-path="workflow.html"><a href="workflow.html#command-line"><i class="fa fa-check"></i><b>5.2.2</b> Command line</a></li>
+<li class="chapter" data-level="5.2.3" data-path="workflow.html"><a href="workflow.html#hosting-platform"><i class="fa fa-check"></i><b>5.2.3</b> Hosting platform</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="workflow.html"><a href="workflow.html#creating-new-commits"><i class="fa fa-check"></i><b>5.3</b> Creating new commits</a></li>
+<li class="chapter" data-level="5.3" data-path="workflow.html"><a href="workflow.html#the-working-copy"><i class="fa fa-check"></i><b>5.3</b> The working copy</a></li>
+<li class="chapter" data-level="5.4" data-path="workflow.html"><a href="workflow.html#creating-new-commits"><i class="fa fa-check"></i><b>5.4</b> Creating new commits</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="practice-workflow.html"><a href="practice-workflow.html"><i class="fa fa-check"></i><b>6</b> Practice: Workflow</a>
 <ul>
@@ -344,8 +341,8 @@ We can of course revert our mistakes from the past, but that doesn’t rewrite t
 The next new commit is always based on the active commit which HEAD is pointing to.
 After creating a new commit, HEAD is set to that new commit.
 So we have an advancing HEAD state.</p>
-<div id="htmlwidget-ec0765abb360642333fb" style="width:960px;height:500px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ec0765abb360642333fb">{"x":{"diagram":"sequenceDiagram\n    User->Git: Create initial commit with no base commit\n    Git->User: Set HEAD to initial commit\n    loop Every new commit\n        User-->Git: Create commit based on HEAD commit\n        Git-->User: Set HEAD to new commit\n    end"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0c1ce88635ff9e45f12f" style="width:960px;height:500px;" class="mermaid html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0c1ce88635ff9e45f12f">{"x":{"diagram":"sequenceDiagram\n    User->Git: Create initial commit with no base commit\n    Git->User: Set HEAD to initial commit\n    loop Every new commit\n        User-->Git: Create commit based on HEAD commit\n        Git-->User: Set HEAD to new commit\n    end"},"evals":[],"jsHooks":[]}</script>
 <p>In the simplest case, this mechanism builds a sequence of commits.
 The HEAD variable could even be omitted and the most recent commit could always be used as the base commit for the next new commit.
 But the user can deliberately set HEAD to any commit in the history, and this commit will act as the base for the next new commit.
@@ -357,8 +354,8 @@ As long as you don’t deliberately change the active commit state, you build si
 <p>Finally, there is a special kind of commit which can be based on two commits.
 As a consequence, diverged paths can merge again.
 The following example diagram illustrates how a result of this process can look like.</p>
-<div id="htmlwidget-c348101414c5211606cb" style="width:960px;height:500px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c348101414c5211606cb">{"x":{"diagram":"graph TB\n  A[Add Readme and restrictive license]-->B[Setup manuscript structure]\n  B-->C[Methods: Describe study design]\n  C-->D[Methods: Describe apparatus]\n  D-->E[Methods: Describe procedure]\n  E-->F[Bibliography: Add literature about more conservative method]\n  E-->G[Bibliography: Add literature about more progressive method]\n  F-->H[Introduction: Explain and reference conservative method]\n  G-->I[Introduction: Explain and reference progressive method]\n  I-->J[Methods: Rewrite around progressive method]\n  H-->K[Choose progressive method, but mention both in introduction]\n  J-->K"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3d240db162466672adea" style="width:960px;height:500px;" class="mermaid html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3d240db162466672adea">{"x":{"diagram":"graph TB\n  A[Add Readme and restrictive license]-->B[Setup manuscript structure]\n  B-->C[Methods: Describe study design]\n  C-->D[Methods: Describe apparatus]\n  D-->E[Methods: Describe procedure]\n  E-->F[Bibliography: Add literature about more conservative method]\n  E-->G[Bibliography: Add literature about more progressive method]\n  F-->H[Introduction: Explain and reference conservative method]\n  G-->I[Introduction: Explain and reference progressive method]\n  I-->J[Methods: Rewrite around progressive method]\n  H-->K[Choose progressive method, but mention both in introduction]\n  J-->K"},"evals":[],"jsHooks":[]}</script>
 <p>If you open the cloned repo in Git Tower, you can inspect its commit history as a graph in the History view.
 The commits are shown in reverse-chronological order.
 Each commit shows its ID, date, author, and a descriptive message.
@@ -405,8 +402,8 @@ Users can deliberately set HEAD to a branch, marking this branch as active branc
 Switching between branches is extremely fast, because it doesn’t need to copy any data files, it’s just setting a reference.
 If HEAD references a branch, advancing is forwarded to that branch instead of advancing HEAD itself.
 Creating a new commit advances the active branch to the new commit and leaves HEAD set to the branch.</p>
-<div id="htmlwidget-2bc4855721a9a7e8215d" style="width:960px;height:500px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2bc4855721a9a7e8215d">{"x":{"diagram":"sequenceDiagram\n    User->Git: Create initial commit with no base commit\nalt HEAD references branch\n    Git->User: Set branch to initial commit\nelse\n    Git->User: Set HEAD to initial commit\nend\n    loop Every new commit\nalt HEAD references branch\n        User-->Git: Create commit based on branch commit\n        Git-->User: Set branch to new commit\nelse\n        User-->Git: Create commit based on HEAD commit\n        Git-->User: Set HEAD to new commit\nend\n    end"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4d1c33cf46dcde5ca6fd" style="width:960px;height:500px;" class="mermaid html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4d1c33cf46dcde5ca6fd">{"x":{"diagram":"sequenceDiagram\n    User->Git: Create initial commit with no base commit\nalt HEAD references branch\n    Git->User: Set branch to initial commit\nelse\n    Git->User: Set HEAD to initial commit\nend\n    loop Every new commit\nalt HEAD references branch\n        User-->Git: Create commit based on branch commit\n        Git-->User: Set branch to new commit\nelse\n        User-->Git: Create commit based on HEAD commit\n        Git-->User: Set HEAD to new commit\nend\n    end"},"evals":[],"jsHooks":[]}</script>
 <p>Git Tower displays the branches of a repo in the Branches section of the sidebar.
 You can linearly follow a branch to the root, and get the impression of separate contexts.
 An important detail to note is that the History view contains no commits that are not reachable by a branch or tag.</p>
