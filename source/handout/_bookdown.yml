@@ -1,5 +1,5 @@
 output_dir: ../../build
 book_filename: handout.Rmd
-view: https://github.com/sfb-135-nowa/version-control/blob/main/%s
-history: https://github.com/sfb-135-nowa/version-control/commits/main/%s
-edit: https://github.com/sfb-135-nowa/version-control/edit/main/%s
+view: https://github.com/sfb-135-nowa/version-control/blob/main/source/handout/%s
+history: https://github.com/sfb-135-nowa/version-control/commits/main/source/handout/%s
+edit: https://github.com/sfb-135-nowa/version-control/edit/main/source/handout/%s
