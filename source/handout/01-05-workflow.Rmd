@@ -112,6 +112,8 @@ You have two alternative strategies for the actual git repo:
 In order to work on a Git project, you need the working copy, the root folder of your project.
 This location is where Git can restore complete or partial project states, and where Git looks for new changes.
 
+`r mermaid::mermaid("../diagrams/data-flow.mmd")`
+
 ## Creating new commits
 
 We already know that a new commit contains the differences to the currently active commit (HEAD), and that the new commit becomes HEAD after it has been created.

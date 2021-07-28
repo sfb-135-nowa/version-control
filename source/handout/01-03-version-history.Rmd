@@ -87,7 +87,7 @@ The next new commit is always based on the active commit which HEAD is pointing 
 After creating a new commit, HEAD is set to that new commit.
 So we have an advancing HEAD state.
 
-`r DiagrammeR::DiagrammeR("../diagrams/add-commits.mmd")`
+`r mermaid::mermaid("../diagrams/add-commits.mmd")`
 
 In the simplest case, this mechanism builds a sequence of commits.
 The HEAD variable could even be omitted and the most recent commit could always be used as the base commit for the next new commit.
@@ -102,7 +102,7 @@ Finally, there is a special kind of commit which can be based on two commits.
 As a consequence, diverged paths can merge again.
 The following example diagram illustrates how a result of this process can look like.
 
-`r DiagrammeR::DiagrammeR("../diagrams/commit-tree.mmd")`
+`r mermaid::mermaid("../diagrams/commit-tree.mmd")`
 
 If you open the cloned repo in Git Tower, you can inspect its commit history as a graph in the History view.
 The commits are shown in reverse-chronological order.
@@ -153,7 +153,7 @@ Switching between branches is extremely fast, because it doesn't need to copy an
 If HEAD references a branch, advancing is forwarded to that branch instead of advancing HEAD itself.
 Creating a new commit advances the active branch to the new commit and leaves HEAD set to the branch.
 
-`r DiagrammeR::DiagrammeR("../diagrams/add-commits-branch.mmd")`
+`r mermaid::mermaid("../diagrams/add-commits-branch.mmd")`
 
 Git Tower displays the branches of a repo in the Branches section of the sidebar.
 You can linearly follow a branch to the root, and get the impression of separate contexts.

@@ -1,7 +1,6 @@
-graph LR
-a(History) -->|Set current commit| b(HEAD)
-b -->|Checkout| c(Working copy)
-
-a(HEAD) -->|Checkout| b(Working Copy)
-b -->|Commit| c(History)
-c -->|Advance| a
+graph TD
+subgraph History
+HEAD -->|Checkout| WC(Working copy)
+end
+WC -->|diff| CL(Change list)
+CL -->|Commit| HEAD
