@@ -9,6 +9,7 @@ Git doesn't create automatic time-based backups, but the user actively decides t
 The user decides when a new version is created and which changes should go into that version.
 This makes it possible to group changes into sets that represent a higher-level action, meaningful versions.
 In addition, each version contains some metadata like author, creation date, and a user-provided description.
+As a side effect, this makes contributions visible.
 
 ## Version history and comparing versions
 
@@ -70,6 +71,7 @@ You can choose what best fits your needs.
 - The traditional command line tool
 - Graphical standalone clients like Git Tower or GitKraken
 - IDE integrations, e.g. in VS Code or IntelliJ
+- File browser integrations
 
 ## General and special tools
 
