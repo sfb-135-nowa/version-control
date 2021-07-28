@@ -1,7 +1,4 @@
-%%{init: {'themeCSS':'.label foreignObject { font-size: 14px; }'}}%%
-flowchart TD
-subgraph History
-  HEAD -->|Checkout| WC
-end
+graph TB
+HEAD -->|Checkout| WC
 WC(Working copy) -->|diff| CL(Change list)
 CL -->|Commit| HEAD
