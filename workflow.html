@@ -217,8 +217,13 @@ div.csl-indent {
 <li class="chapter" data-level="5.2.2" data-path="workflow.html"><a href="workflow.html#command-line"><i class="fa fa-check"></i><b>5.2.2</b> Command line</a></li>
 <li class="chapter" data-level="5.2.3" data-path="workflow.html"><a href="workflow.html#hosting-platform"><i class="fa fa-check"></i><b>5.2.3</b> Hosting platform</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="workflow.html"><a href="workflow.html#the-working-copy"><i class="fa fa-check"></i><b>5.3</b> The working copy</a></li>
-<li class="chapter" data-level="5.4" data-path="workflow.html"><a href="workflow.html#creating-new-commits"><i class="fa fa-check"></i><b>5.4</b> Creating new commits</a></li>
+<li class="chapter" data-level="5.3" data-path="workflow.html"><a href="workflow.html#creating-new-commits"><i class="fa fa-check"></i><b>5.3</b> Creating new commits</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="workflow.html"><a href="workflow.html#editing-the-working-copy"><i class="fa fa-check"></i><b>5.3.1</b> Editing the working copy</a></li>
+<li class="chapter" data-level="5.3.2" data-path="workflow.html"><a href="workflow.html#viewing-and-selecting-changes-in-the-working-copy"><i class="fa fa-check"></i><b>5.3.2</b> Viewing and selecting changes in the working copy</a></li>
+<li class="chapter" data-level="5.3.3" data-path="workflow.html"><a href="workflow.html#creating-a-new-commit"><i class="fa fa-check"></i><b>5.3.3</b> Creating a new commit</a></li>
+<li class="chapter" data-level="5.3.4" data-path="workflow.html"><a href="workflow.html#populating-the-working-copy"><i class="fa fa-check"></i><b>5.3.4</b> Populating the working copy</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="practice-workflow.html"><a href="practice-workflow.html"><i class="fa fa-check"></i><b>6</b> Practice: Workflow</a>
 <ul>
@@ -360,15 +365,8 @@ If you want to populate an existing local repo, or need more control over the in
 </ol>
 </div>
 </div>
-<div id="the-working-copy" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> The working copy</h2>
-<p>In order to work on a Git project, you need the working copy, the root folder of your project.
-This location is where Git can restore complete or partial project states, and where Git looks for new changes.</p>
-<div id="htmlwidget-8aa94bd404b0a4a03f24" style="width:960px;height:500px;" class="mermaid html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8aa94bd404b0a4a03f24">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="creating-new-commits" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Creating new commits</h2>
+<div id="creating-new-commits" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Creating new commits</h2>
 <p>We already know that a new commit contains the differences to the currently active commit (HEAD), and that the new commit becomes HEAD after it has been created.
 So the standard workflow is creating a sequence of commits during work.
 Creating commits is an iterative explicit workflow which may need some habit building,
@@ -378,7 +376,69 @@ but can be a tool for structuring one’s thoughts and making work results visib
 <li>View and select changes in the working copy compared to the current HEAD</li>
 <li>Create new commit</li>
 </ul>
+<div id="editing-the-working-copy" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Editing the working copy</h3>
+<p>This is your actual work with you usual productivity tools.
+Your project folder contains a (maybe still pristine) copy of HEAD,
+and here you can make your improvements.
+Physical files and lines can be added, modified, and deleted.
+After you have finished a task or something similar that can be suitable for a commit, it’s time to proceed to the next step.</p>
+</div>
+<div id="viewing-and-selecting-changes-in-the-working-copy" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Viewing and selecting changes in the working copy</h3>
+<p>Git doesn’t track the user’s working actions,
+but it just compares the working copy to HEAD and shows the differences in the diff format you have already seen in the history section.
+This differential approach is an important building block which makes Git tool agnostic.
+It can be helpful to imagine this as an additional virtual location where the unversioned changes are collected in a change set.
+The change set depends on the working copy, and it is a good habit to observe the change set during work.
+If you select and commit some changes, these changes disappear from the change set and flow into the history where they become versioned.</p>
+<div id="htmlwidget-675a72efe5f86a01afdd" style="width:960px;height:500px;" class="mermaid html-widget"></div>
+<script type="application/json" data-for="htmlwidget-675a72efe5f86a01afdd">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
+<p>In Git Tower, the Working copy view is made for preparing and creating commits.
+The Tower help provides overview sections about <a href="https://www.git-tower.com/help/guides/working-copy/inspect-changes">inspecting changes</a> and <a href="https://www.git-tower.com/help/guides/working-copy/stage-changes">selecting changes</a>.</p>
+<p>You can select either complete files via checkbox, or partial files where a change occurred.
+If you are sure that you want to select everything, simply hit the “Stage all” button and you are ready to commit.
+Noticeably, Git has weird terms for many usual concepts, and staging is the term for selecting changes for the next commit.</p>
+<p>On the command line, Git provides some subcommands for viewing and selecting changes:</p>
+<ul>
+<li><code>git status</code> lists the changed files.</li>
+<li><code>git diff &lt;filepath&gt;</code> shows the diff view of the given file.</li>
+<li><code>git add &lt;filepath&gt;</code> stages a file.</li>
+<li><code>git restore --staged &lt;filepath&gt;</code> unstages a file.</li>
+</ul>
+<p>The status output differentiates between tracked files and untracked files:</p>
+<ul>
+<li>Tracked files were already committed to the history, but the working copy contains added or deleted lines.</li>
+<li>Untracked files were never committed before, but staging and committing them adds them to the history which turns them into tracked files.</li>
+</ul>
+<p>You might also be interested in [interactive staging] by Git Pro for the partial file selection.</p>
+</div>
+<div id="creating-a-new-commit" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Creating a new commit</h3>
+<p>This is the transition of the selected changes into the history.
+After figuring out your change selection, enter a well-formed commit message, and hit Commit.
+The committed changes are now versioned and should disappear from the change list.</p>
+<p>On the command line, execute <code>git commit</code> to create a commit from the selection.
+Your text editor will open and wait for the commit message being saved.
+You can also run <code>git commit -m "My non-interactive message"</code> to skip the editor step.</p>
+</div>
+<div id="populating-the-working-copy" class="section level3" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Populating the working copy</h3>
+<p>If we want to work on another branch or change HEAD for another reason,
+we would possibly see many pointless changes in the change set.
+we need a way to restore history commits to the working copy.
+Git offers the <code>checkout</code> command to synchronize the working copy with the history.
+This command actually throws two concepts together (switch HEAD and restore files), that’s why its usage can be a bit confusing.
+Please examine your change set always before using checkout, because unversioned changes can get lost or Git will refuse to checkout.</p>
+<ul>
+<li>Checking out a file means keeping HEAD as is, and just restoring the files in the given path from the HEAD commit.
+This is commonly used for discarding unversioned changes.</li>
+<li>Checking out a branch, tag, or commit means setting HEAD to that commit, and overwriting the working copy with the state corresponding to HEAD.
+This should only be done if the working copy is clean.</li>
+<li>You will encounter the checkout command in more circumstances, because it has a pletora of additional shortcut options.</li>
+</ul>
 
+</div>
 </div>
 </div>
             </section>

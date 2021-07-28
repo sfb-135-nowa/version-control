@@ -32,8 +32,11 @@ creating-a-git-repository
 git-tower
 command-line
 hosting-platform
-the-working-copy
 creating-new-commits
+editing-the-working-copy
+viewing-and-selecting-changes-in-the-working-copy
+creating-a-new-commit
+populating-the-working-copy
 practice-workflow
 general-workflow
 suggested-improvements
