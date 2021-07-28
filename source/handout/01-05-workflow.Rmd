@@ -168,7 +168,7 @@ On the command line, execute `git commit` to create a commit from the selection.
 Your text editor will open and wait for the commit message being saved.
 You can also run `git commit -m "My non-interactive message"` to skip the editor step.
 
-### Populating the working copy
+## Populating the working copy
 
 If we want to work on another branch or change HEAD for another reason,
 we would possibly see many pointless changes in the change set.
@@ -181,7 +181,22 @@ Please examine your change set always before using checkout, because unversioned
   This is commonly used for discarding unversioned changes.
 - Checking out a branch, tag, or commit means setting HEAD to that commit, and overwriting the working copy with the state corresponding to HEAD.
   This should only be done if the working copy is clean.
-- You will encounter the checkout command in more circumstances, because it has a pletora of additional shortcut options.
+- You will encounter the checkout command in many more circumstances, because it has a pletora of shortcut options.
+
+```bash
+# Restore the complete project from HEAD
+git checkout .
+# Checkout file from HEAD
+git checkout README.md
+# Restore files in path from HEAD
+git checkout source/*
+# Checkout the main branch
+git checkout main
+# Checkout the abc commit
+git checkout abc
+```
+
+After a successful checkout, you are able to create commit trees.
 
 [editor-config]: https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
 [github-commit-email]: https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
