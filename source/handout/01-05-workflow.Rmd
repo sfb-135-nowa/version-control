@@ -196,7 +196,30 @@ git checkout main
 git checkout abc
 ```
 
-After a successful checkout, you are able to create commit trees.
+If you commit after a successful checkout, a diverging tree will be the result.
+
+## Creating branches and tags
+
+In your own repos, you will need to create your own branches and tags.
+Git provides a couple of commands to cover various scenarios.
+
+```bash
+# Create a branch named testing which points to the HEAD commit
+git branch testing
+# Create an annotated tag named v0.1.0 pointing to HEAD
+# This is part of the git tree
+git tag -a v0.1.0
+# Create a tag named latest which points to the HEAD commit
+# This marks v0.1.0 as latest release
+git tag latest
+# Create a branch named feature which points to latest tag
+git branch feature latest
+# Combine creating a branch with checkout
+# Create and checkout a branch named develop pointing to HEAD
+git checkout -b develop
+# Create and checkout a branch named fix pointing to main
+git checkout -b fix main
+```
 
 [editor-config]: https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
 [github-commit-email]: https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
