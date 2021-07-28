@@ -222,8 +222,8 @@ div.csl-indent {
 <li class="chapter" data-level="5.3.1" data-path="workflow.html"><a href="workflow.html#editing-the-working-copy"><i class="fa fa-check"></i><b>5.3.1</b> Editing the working copy</a></li>
 <li class="chapter" data-level="5.3.2" data-path="workflow.html"><a href="workflow.html#viewing-and-selecting-changes-in-the-working-copy"><i class="fa fa-check"></i><b>5.3.2</b> Viewing and selecting changes in the working copy</a></li>
 <li class="chapter" data-level="5.3.3" data-path="workflow.html"><a href="workflow.html#creating-a-new-commit"><i class="fa fa-check"></i><b>5.3.3</b> Creating a new commit</a></li>
-<li class="chapter" data-level="5.3.4" data-path="workflow.html"><a href="workflow.html#populating-the-working-copy"><i class="fa fa-check"></i><b>5.3.4</b> Populating the working copy</a></li>
 </ul></li>
+<li class="chapter" data-level="5.4" data-path="workflow.html"><a href="workflow.html#populating-the-working-copy"><i class="fa fa-check"></i><b>5.4</b> Populating the working copy</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="practice-workflow.html"><a href="practice-workflow.html"><i class="fa fa-check"></i><b>6</b> Practice: Workflow</a>
 <ul>
@@ -392,8 +392,8 @@ This differential approach is an important building block which makes Git tool a
 It can be helpful to imagine this as an additional virtual location where the unversioned changes are collected in a change set.
 The change set depends on the working copy, and it is a good habit to observe the change set during work.
 If you select and commit some changes, these changes disappear from the change set and flow into the history where they become versioned.</p>
-<div id="htmlwidget-675a72efe5f86a01afdd" style="width:960px;height:500px;" class="mermaid html-widget"></div>
-<script type="application/json" data-for="htmlwidget-675a72efe5f86a01afdd">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c9641610aa7606b0f5c3" style="width:960px;height:500px;" class="mermaid html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c9641610aa7606b0f5c3">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
 <p>In Git Tower, the Working copy view is made for preparing and creating commits.
 The Tower help provides overview sections about <a href="https://www.git-tower.com/help/guides/working-copy/inspect-changes">inspecting changes</a> and <a href="https://www.git-tower.com/help/guides/working-copy/stage-changes">selecting changes</a>.</p>
 <p>You can select either complete files via checkbox, or partial files where a change occurred.
@@ -422,8 +422,9 @@ The committed changes are now versioned and should disappear from the change lis
 Your text editor will open and wait for the commit message being saved.
 You can also run <code>git commit -m "My non-interactive message"</code> to skip the editor step.</p>
 </div>
-<div id="populating-the-working-copy" class="section level3" number="5.3.4">
-<h3><span class="header-section-number">5.3.4</span> Populating the working copy</h3>
+</div>
+<div id="populating-the-working-copy" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Populating the working copy</h2>
 <p>If we want to work on another branch or change HEAD for another reason,
 we would possibly see many pointless changes in the change set.
 we need a way to restore history commits to the working copy.
@@ -435,10 +436,20 @@ Please examine your change set always before using checkout, because unversioned
 This is commonly used for discarding unversioned changes.</li>
 <li>Checking out a branch, tag, or commit means setting HEAD to that commit, and overwriting the working copy with the state corresponding to HEAD.
 This should only be done if the working copy is clean.</li>
-<li>You will encounter the checkout command in more circumstances, because it has a pletora of additional shortcut options.</li>
+<li>You will encounter the checkout command in many more circumstances, because it has a pletora of shortcut options.</li>
 </ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="workflow.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore the complete project from HEAD</span></span>
+<span id="cb4-2"><a href="workflow.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout .</span>
+<span id="cb4-3"><a href="workflow.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Checkout file from HEAD</span></span>
+<span id="cb4-4"><a href="workflow.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout README.md</span>
+<span id="cb4-5"><a href="workflow.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Restore files in path from HEAD</span></span>
+<span id="cb4-6"><a href="workflow.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout source/<span class="pp">*</span></span>
+<span id="cb4-7"><a href="workflow.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Checkout the main branch</span></span>
+<span id="cb4-8"><a href="workflow.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main</span>
+<span id="cb4-9"><a href="workflow.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Checkout the abc commit</span></span>
+<span id="cb4-10"><a href="workflow.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout abc</span></code></pre></div>
+<p>After a successful checkout, you are able to create commit trees.</p>
 
-</div>
 </div>
 </div>
             </section>
