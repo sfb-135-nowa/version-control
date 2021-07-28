@@ -107,13 +107,6 @@ You have two alternative strategies for the actual git repo:
 2. Skip initializing, add the new URL as remote to an existing local repo, and push the initial branch.
    If you want to populate an existing local repo, or need more control over the initialization process, this is the right choice.
 
-## The working copy
-
-In order to work on a Git project, you need the working copy, the root folder of your project.
-This location is where Git can restore complete or partial project states, and where Git looks for new changes.
-
-`r mermaid::mermaid("../diagrams/data-flow.mmd")`
-
 ## Creating new commits
 
 We already know that a new commit contains the differences to the currently active commit (HEAD), and that the new commit becomes HEAD after it has been created.
@@ -125,5 +118,73 @@ but can be a tool for structuring one's thoughts and making work results visible
 - View and select changes in the working copy compared to the current HEAD
 - Create new commit
 
+### Editing the working copy
+
+This is your actual work with you usual productivity tools.
+Your project folder contains a (maybe still pristine) copy of HEAD,
+and here you can make your improvements.
+Physical files and lines can be added, modified, and deleted.
+After you have finished a task or something similar that can be suitable for a commit, it's time to proceed to the next step.
+
+### Viewing and selecting changes in the working copy
+
+Git doesn't track the user's working actions,
+but it just compares the working copy to HEAD and shows the differences in the diff format you have already seen in the history section.
+This differential approach is an important building block which makes Git tool agnostic.
+It can be helpful to imagine this as an additional virtual location where the unversioned changes are collected in a change set.
+The change set depends on the working copy, and it is a good habit to observe the change set during work.
+If you select and commit some changes, these changes disappear from the change set and flow into the history where they become versioned.
+
+`r mermaid::mermaid("../diagrams/data-flow.mmd")`
+
+In Git Tower, the Working copy view is made for preparing and creating commits.
+The Tower help provides overview sections about [inspecting changes] and [selecting changes].
+
+You can select either complete files via checkbox, or partial files where a change occurred.
+If you are sure that you want to select everything, simply hit the “Stage all” button and you are ready to commit.
+Noticeably, Git has weird terms for many usual concepts, and staging is the term for selecting changes for the next commit.
+
+On the command line, Git provides some subcommands for viewing and selecting changes:
+
+- `git status` lists the changed files.
+- `git diff <filepath>` shows the diff view of the given file.
+- `git add <filepath>` stages a file.
+- `git restore --staged <filepath>` unstages a file.
+
+The status output differentiates between tracked files and untracked files:
+
+- Tracked files were already committed to the history, but the working copy contains added or deleted lines.
+- Untracked files were never committed before, but staging and committing them adds them to the history which turns them into tracked files.
+
+You might also be interested in [interactive staging] by Git Pro for the partial file selection.
+
+### Creating a new commit
+
+This is the transition of the selected changes into the history.
+After figuring out your change selection, enter a well-formed commit message, and hit Commit.
+The committed changes are now versioned and should disappear from the change list.
+
+On the command line, execute `git commit` to create a commit from the selection.
+Your text editor will open and wait for the commit message being saved.
+You can also run `git commit -m "My non-interactive message"` to skip the editor step.
+
+### Populating the working copy
+
+If we want to work on another branch or change HEAD for another reason,
+we would possibly see many pointless changes in the change set.
+we need a way to restore history commits to the working copy.
+Git offers the `checkout` command to synchronize the working copy with the history.
+This command actually throws two concepts together (switch HEAD and restore files), that's why its usage can be a bit confusing.
+Please examine your change set always before using checkout, because unversioned changes can get lost or Git will refuse to checkout.
+
+- Checking out a file means keeping HEAD as is, and just restoring the files in the given path from the HEAD commit.
+  This is commonly used for discarding unversioned changes.
+- Checking out a branch, tag, or commit means setting HEAD to that commit, and overwriting the working copy with the state corresponding to HEAD.
+  This should only be done if the working copy is clean.
+- You will encounter the checkout command in more circumstances, because it has a pletora of additional shortcut options.
+
 [editor-config]: https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
 [github-commit-email]: https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
+[inspecting changes]: https://www.git-tower.com/help/guides/working-copy/inspect-changes
+[selecting changes]: https://www.git-tower.com/help/guides/working-copy/stage-changes
+[interactive-staging]: https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging
