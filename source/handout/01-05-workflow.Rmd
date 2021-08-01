@@ -58,7 +58,7 @@ When Git asks for text input, it opens this editor in a special mode where you c
 and Git waits until you confirm your input by saving and closing the document.
 In Git Tower, this setting will rarely be used.
 If you'd never use the command line, you could skip this step, but it is recommended as a precaution.
-Please configure one of the editors listed [in this appendix of Git Pro][editor-config] (table 4).
+Please configure one of the editors listed in [table 4][editor config] of @Chacon:2014aa [497].
 
 ### Default initial branch
 
@@ -144,7 +144,8 @@ You can select either complete files via checkbox, or partial files where a chan
 If you are sure that you want to select everything, simply hit the “Stage all” button and you are ready to commit.
 Noticeably, Git has weird terms for many usual concepts, and staging is the term for selecting changes for the next commit.
 
-On the command line, Git provides some subcommands for viewing and selecting changes:
+On the command line, Git provides some subcommands for viewing and selecting changes.
+You might also be interested in [Interactive Staging] in @Chacon:2014aa [229] for the partial file selection.
 
 - `git status` lists the changed files.
 - `git diff <filepath>` shows the diff view of the given file.
@@ -155,8 +156,6 @@ The status output differentiates between tracked files and untracked files:
 
 - Tracked files were already committed to the history, but the working copy contains added or deleted lines.
 - Untracked files were never committed before, but staging and committing them adds them to the history which turns them into tracked files.
-
-You might also be interested in [interactive staging] by Git Pro for the partial file selection.
 
 ### Creating a new commit
 
@@ -238,7 +237,7 @@ git push -u origin main
 git push
 ```
 
-[editor-config]: https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
+[editor config]: https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor
 [github-commit-email]: https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
 [inspecting changes]: https://www.git-tower.com/help/guides/working-copy/inspect-changes
 [selecting changes]: https://www.git-tower.com/help/guides/working-copy/stage-changes

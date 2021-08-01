@@ -67,7 +67,7 @@ SSH
 : On Mac and Linux, SSH is relatively straight forward, but you can use [PuTTY] to manage your SSH keys on Windows.
 : I recommend you to create keys without an additional password (passphrase), because keys themselves are secure enough, and entering the passphrase becomes very distracting in the workflow.
 
-Public services like <github.com> and <gitlab.com> offer both methods, and you'll find detailed setup guides in their help resources.
+Public services like [Github](github.com) and [Gitlab](gitlab.com) offer both methods, and you'll find detailed setup guides in their help resources.
 After setting up authentication, manually entering passwords is rarely needed.
 Sometimes, only one of them is available on a server.
 The self-hosted NOWA gitlab only supports HTTPS, but no SSH.
@@ -112,7 +112,7 @@ You can switch from list view to tree view which displays the full project state
 
 On the command line, use the `git log <id>` command to list commits, and `git show <id>` to view exactly one commit.
 These commands can be seen as query tools for selecting and subsetting commits and the displayed information of each commit.
-The Git Pro book provides a [short summary][git history] of using `git log` and its options.
+See [Viewing the Commit History] in @Chacon:2014aa [38] for a short summary of using `git log` and its options.
 If no ID is given, the active commit is used by both commands.
 Try e.g. `git log --stat` or `git log --oneline` to customize your log output, or `git log <file/path>` to subset the commits affecting a given file or folder.
 
@@ -228,4 +228,4 @@ It uses the same comparing mechanisms as above and reports the difference in ter
 [course repository]: https://github.com/sfb-135-nowa/version-control
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/
 [diff]: https://en.wikipedia.org/wiki/Diff#Unified_format
-[git history]: https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
+[viewing the commit history]: https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
