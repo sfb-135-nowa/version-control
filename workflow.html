@@ -315,14 +315,14 @@ When Git asks for text input, it opens this editor in a special mode where you c
 and Git waits until you confirm your input by saving and closing the document.
 In Git Tower, this setting will rarely be used.
 If you’d never use the command line, you could skip this step, but it is recommended as a precaution.
-Please configure one of the editors listed <a href="https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor">in this appendix of Git Pro</a> (table 4).</p>
+Please configure one of the editors listed in <a href="https://www.git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config#ch_core_editor">table 4</a> of <span class="citation">Chacon &amp; Straub (2014, p. 497)</span>.</p>
 </div>
 <div id="default-initial-branch" class="section level3" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> Default initial branch</h3>
 <p>When a new repository is created, Git also creates an initial branch as a starting point to work with immediately.
 This branch often represents the current stable version of the project and is set as HEAD on hosting platforms like Gitlab or Github.
 This affects the active branch after cloning a repo, and how a repo is displayed on the web page.
-Historically, it’s default name has been “master,” but a cultural change has occurred in the tech community
+Historically, it’s default name has been “master”, but a cultural change has occurred in the tech community
 which strives to replace the master/slave terms in technical speech with more neutral and politically inclusive ones.
 Git and platforms like Gitlab and Github support this movement and have chosen “main” as the new default name for initial branches.
 The migration process is inevitable but still in progress,
@@ -394,14 +394,15 @@ This differential approach is an important building block which makes Git tool a
 It can be helpful to imagine this as an additional virtual location where the unversioned changes are collected in a change set.
 The change set depends on the working copy, and it is a good habit to observe the change set during work.
 If you select and commit some changes, these changes disappear from the change set and flow into the history where they become versioned.</p>
-<div id="htmlwidget-84d09e52734ebdbf58cf" style="width:960px;height:500px;" class="mermaid html-widget"></div>
-<script type="application/json" data-for="htmlwidget-84d09e52734ebdbf58cf">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-53453e7f4064b384098e" style="width:960px;height:500px;" class="mermaid html-widget"></div>
+<script type="application/json" data-for="htmlwidget-53453e7f4064b384098e">{"x":{"diagram":"graph TB\nHEAD -->|Checkout| WC\nWC(Working copy) -->|diff| CL(Change list)\nCL -->|Commit| HEAD"},"evals":[],"jsHooks":[]}</script>
 <p>In Git Tower, the Working copy view is made for preparing and creating commits.
 The Tower help provides overview sections about <a href="https://www.git-tower.com/help/guides/working-copy/inspect-changes">inspecting changes</a> and <a href="https://www.git-tower.com/help/guides/working-copy/stage-changes">selecting changes</a>.</p>
 <p>You can select either complete files via checkbox, or partial files where a change occurred.
 If you are sure that you want to select everything, simply hit the “Stage all” button and you are ready to commit.
 Noticeably, Git has weird terms for many usual concepts, and staging is the term for selecting changes for the next commit.</p>
-<p>On the command line, Git provides some subcommands for viewing and selecting changes:</p>
+<p>On the command line, Git provides some subcommands for viewing and selecting changes.
+You might also be interested in [Interactive Staging] in <span class="citation">Chacon &amp; Straub (2014, p. 229)</span> for the partial file selection.</p>
 <ul>
 <li><code>git status</code> lists the changed files.</li>
 <li><code>git diff &lt;filepath&gt;</code> shows the diff view of the given file.</li>
@@ -413,7 +414,6 @@ Noticeably, Git has weird terms for many usual concepts, and staging is the term
 <li>Tracked files were already committed to the history, but the working copy contains added or deleted lines.</li>
 <li>Untracked files were never committed before, but staging and committing them adds them to the history which turns them into tracked files.</li>
 </ul>
-<p>You might also be interested in [interactive staging] by Git Pro for the partial file selection.</p>
 </div>
 <div id="creating-a-new-commit" class="section level3" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> Creating a new commit</h3>
