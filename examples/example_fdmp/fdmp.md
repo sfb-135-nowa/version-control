@@ -6,6 +6,8 @@ date: 2021-08-05
 
 # General Information
 
+## Storage
+
 # Digital Data
 
 # Documentation and Metadata
