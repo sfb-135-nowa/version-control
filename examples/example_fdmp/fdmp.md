@@ -1,6 +1,6 @@
 ---
 title: Datenmanagementplan HeFDI
-author: Tamara Cook
+author: Tamara Cook <tamara.cook@uni-marburg.de>
 date: 2021-08-05
 ---
 
