@@ -9,8 +9,8 @@ author: Tamara Cook
 
 # Documentation and Metadata
 
-## Documentation
-
 ## Metadata
+
+## Documentation
 
 # Sharing and Archiving
