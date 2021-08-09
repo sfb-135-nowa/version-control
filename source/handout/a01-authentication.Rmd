@@ -1,0 +1,62 @@
+# (APPENDIX) Appendix {-}
+
+# Connecting and authenticating to hosting services
+
+Git has two authentication strategies for repositories with restricted access:
+
+- HTTPS with URLs like <https://gitlab.com/example-user/example-repo.git>
+- SSH with URLs like <ssh://git@unimarburg.plan.io:unimarburg/umr.git>
+
+Many servers or hosting services provide only one of them, or one of them is better supported:
+
+- NOWA's Gitlab only supports HTTPS.
+- Planio supports SSH better than HTTPS.
+
+## SSH authentication
+
+SSH makes use of a locally generated asymmetric keypair consisting of a private/secret and a public key.
+The private key is used when you try to connect to the service, and the public key is needed by the service to recognize your private key's signature.
+The procedure is illustrated for Planio, but it can be adapted to other platforms by replacing the host name.
+
+### Generating the keys
+
+- Open terminal with Git Bash
+- Create a .ssh directory in your user directory: `mkdir -p .ssh`
+- Enter the new directory: `cd .ssh`
+- Generate the keys: `ssh-keygen -t rsa -b 4096`
+- Choose a name: `planio`
+- Simply press enter twice to set no pass phrase
+- List the files in the .ssh directory to check if planio and planio.pub have been created: `ls`
+- Keep the terminal opened
+
+### Configure SSH to use the generated key to authenticate with Planio
+
+- Create a new file named config in the .ssh directory: `touch config`
+- Open the new config file in notepad: `notepad config`
+- Paste the following configuration into the config file, save, and close the config:
+
+```
+Host planio
+  HostName unimarburg.plan.io
+  User git
+  Preferredauthentications publickey
+  IdentityFile ~/.ssh/planio
+```
+
+### Upload the public key
+
+- Open the planio.pub file via notepad and copy its contents.
+- Go to Planio and sign in
+- On your account settings page, find public keys
+- Click add
+- Enter a title like Office PC, and the contents of the planio.pub file as key.
+- Confirm and the key should be added to your public keys collection.
+
+### Your first SSH connection
+
+Before we start cloning git repos, let's try our ssh settings:
+
+- Open a Git Bash terminal, if not still opened.
+- Initiate a ssh connection: `ssh -T planio`
+- You will be asked to confirm that you trust the server. This question appears only if a server is still unknown to your computer. Enter yes and your computer will remember the server as trustworthy, as long as they don't change their key. This step is also necessary because Git Tower errors if it encounters this question.
+- You should see something along the lines that authentication was successful, but planio doesn't support interactive shell access. That's OK, your SSH is working fine and ready for git.
