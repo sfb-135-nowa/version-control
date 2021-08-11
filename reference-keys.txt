@@ -24,10 +24,6 @@ exploring-commits-and-their-associated-project-state
 interpreting-file-content-changes
 congrats
 workflow
-setup
-commit-identity
-editor
-default-initial-branch
 creating-a-git-repository
 git-tower
 command-line
@@ -50,3 +46,9 @@ license-file
 tests
 organization-1
 agenda-1
+connecting-and-authenticating-to-hosting-services
+ssh-authentication
+generating-the-keys
+configure-ssh-to-use-the-generated-key-to-authenticate-with-planio
+upload-the-public-key
+your-first-ssh-connection

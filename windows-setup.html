@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Organization | Version Control with Git</title>
-  <meta name="description" content="7 Organization | Version Control with Git" />
+  <title>Windows Setup | Version Control with Git</title>
+  <meta name="description" content="Windows Setup | Version Control with Git" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Organization | Version Control with Git" />
+  <meta property="og:title" content="Windows Setup | Version Control with Git" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Organization | Version Control with Git" />
+  <meta name="twitter:title" content="Windows Setup | Version Control with Git" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="practice-workflow.html"/>
-<link rel="next" href="connecting-and-authenticating-to-hosting-services.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="organization.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -275,17 +275,50 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="organization-1" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Organization</h1>
-<p>In this session, the scope extends to collaboration on Gitlab projects. These topics are covered:</p>
+<div id="windows-setup" class="section level1 unnumbered">
+<h1>Windows Setup</h1>
+<p>This guide walks you through getting the recommended tools for a git-based workflow on a Windows computer.
+Please try to finish the steps in order to be ready for Git.</p>
+<div id="terminal" class="section level2 unnumbered">
+<h2>terminal</h2>
+<p>There are graphical interfaces for Git, but it’s a command line tool at its core.
+People often use both interfaces side by side in combination.
+Even if you prefer the GUI, you should know how Git can be run from the command line.</p>
+<p><a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab">Windows Terminal</a> is Microsoft’s modern Windows 10 app for running command lines.
+It provides multiple tabs, custom command lines, more intuitive key bindings, color schemes etc.
+Please install Windows Terminal from the Windows Store (recommended, but not necessary).</p>
+</div>
+<div id="git-for-windows" class="section level2 unnumbered">
+<h2>Git for Windows</h2>
+<p>Please download and install the newest release of <a href="https://gitforwindows.org">Git for Windows</a>.
+When you go through the installer, please adjust the following settings:</p>
 <ul>
-<li>Connecting Git repos with Gitlab and uploading work for backup</li>
-<li>Customizing Git repos for the project content</li>
-<li>Sharing Gitlab projects with co-workers for review</li>
-<li>Collaborating with co-workers on a shared Gitlab project</li>
+<li>Activate the “Add a Git Bash Profile to Windows Terminal” component</li>
+<li>Choose a default text editor which is installed on your computer. Git uses this editor to ask for text input, if it is run from command line. If you’re in doubt, simply choose Notepad.</li>
+<li>Select “Override the default branch name for new git repositories” and leave the input field set to “main”</li>
 </ul>
-<div id="agenda-1" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Agenda</h2>
+</div>
+<div id="running-git-commands" class="section level2 unnumbered">
+<h2>Running Git commands</h2>
+<ul>
+<li>In Windows Terminal, open a new tab by selecting Git Bash from the dropdown (CTRL + Shift + Space).</li>
+<li>If you don’t have Windows Terminal, open Git Bash from Windows menu.</li>
+<li>You should see the Bash command line with the dollar prompt. Try these commands to check if it’s working:
+<ul>
+<li><code>git --version</code></li>
+<li>type <code>git --ver</code> and tab to see if tab completion works. The line should be replaced with <code>git --version</code>.</li>
+</ul></li>
+<li>You can set Git Bash as the default command line via Settings from dropdown or <em>CTRL+,</em>.</li>
+</ul>
+</div>
+<div id="graphical-git-interface" class="section level2 unnumbered">
+<h2>Graphical Git Interface</h2>
+<p>Please download and install <a href="https://www.git-tower.com/windows">Git Tower</a>, the graphical interface used in this course, on your computer.
+Please adjust these settings when you proceed through the setup assistant:</p>
+<ul>
+<li>Select the trial version</li>
+<li>Please enter your proper name and email, because these are added to your contributions when you work with Git, they can’t be changed afterwards, and they can be visible to others if you share your work</li>
+</ul>
 
 </div>
 </div>
@@ -297,8 +330,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="practice-workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="connecting-and-authenticating-to-hosting-services.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="organization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -320,15 +353,15 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/sfb-135-nowa/version-control/edit/main/source/handout/02-01-organization.Rmd",
+"link": "https://github.com/sfb-135-nowa/version-control/edit/main/source/handout/00-00-windows-setup.Rmd",
 "text": "Edit"
 },
 "history": {
-"link": "https://github.com/sfb-135-nowa/version-control/commits/main/source/handout/02-01-organization.Rmd",
+"link": "https://github.com/sfb-135-nowa/version-control/commits/main/source/handout/00-00-windows-setup.Rmd",
 "text": null
 },
 "view": {
-"link": "https://github.com/sfb-135-nowa/version-control/blob/main/source/handout/02-01-organization.Rmd",
+"link": "https://github.com/sfb-135-nowa/version-control/blob/main/source/handout/00-00-windows-setup.Rmd",
 "text": null
 },
 "download": null,
